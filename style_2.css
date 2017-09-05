@@ -13,7 +13,7 @@ button {
 			rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0.6)
 		),
-		url(../Netflix-background.jpg);
+		url(https://goo.gl/Nv8423);
 	background-position: 82% 22%;
 }
 .header_label {
@@ -45,7 +45,38 @@ button {
 }
 .header_img_description {
 	color: #fff;
-	padding: 0 70px;
+	padding: 0 40px 0 70px;
+}
+.header_img_description .show_title {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 45px;
+    color: #f43659;
+    padding: 10px 0;
+}
+.header_img_description .film_rating {
+    display: inline-block;
+    vertical-align: middle;
+    color: #76986e;
+    border: 2px solid #76986e;
+    padding: 13px;
+    font-size: 24px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.header_img_description .category {
+    font-size: 24px;
+}
+.header_img_description .description {
+    font-size: 24px;
+    padding: 20px 0;
+}
+.header_img_description .release_year {
+    padding: 20px 0 10px;
+    font-weight: bold;
+}
+.header_img_description .director_cast_list {
+    font-size: 14px;
 }
 /*-----------films-----------*/
 .sort {
@@ -106,7 +137,6 @@ button {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
 }
 /*------------footer--------*/
 .footer {
