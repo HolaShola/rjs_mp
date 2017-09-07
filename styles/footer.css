@@ -1,0 +1,14 @@
+/*------------footer--------*/
+.footer {
+	background: #534b42;
+	height: 50px;
+	margin-top: 30px;
+}
+.footer .footer_label {
+	padding: 0 100px;
+	line-height: 50px;
+}
+.footer p {
+	color: #f43659;
+	font-size: 22px;
+}

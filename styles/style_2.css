@@ -1,0 +1,154 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+button {
+	cursor: pointer;
+}
+
+/*-----------header----------*/
+.header {
+	background: linear-gradient(
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)
+		),
+		url(https://goo.gl/Nv8423);
+	background-position: 82% 22%;
+}
+.header_label {
+	padding: 0 100px 30px;
+}
+.header_label .header_label_up {
+	margin-bottom: 30px;
+}
+.header_label .header_label_up p {
+	color: #f43659;
+	font-size: 22px;
+	padding: 20px 0;
+	display: inline-block;
+}
+.header_label .header_label_up button {
+	float: right;
+	margin-top: 15px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	color: #f43659;
+	background-color: #fff;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+.header_down {
+	display: flex;
+	flex-direction: row;
+}
+.header_img_description {
+	color: #fff;
+	padding: 0 40px 0 70px;
+}
+.header_img_description .show_title {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 45px;
+    color: #f43659;
+    padding: 10px 0;
+}
+.header_img_description .film_rating {
+    display: inline-block;
+    vertical-align: middle;
+    color: #76986e;
+    border: 2px solid #76986e;
+    padding: 13px;
+    font-size: 24px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+.header_img_description .category {
+    font-size: 24px;
+}
+.header_img_description .description {
+    font-size: 24px;
+    padding: 20px 0;
+}
+.header_img_description .release_year {
+    padding: 20px 0 10px;
+    font-weight: bold;
+}
+.header_img_description .director_cast_list {
+    font-size: 14px;
+}
+/*-----------films-----------*/
+.sort {
+	height: 70px;
+	padding: 0 100px;
+	margin-bottom: 30px;
+	background-color: #ececec;
+	line-height: 70px;
+	font-size: 22px;
+}
+.sort div:first-child {
+	display: inline-block;
+}
+.sort_by p {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+.sort_by {
+	float: right;
+}
+.sort_by button {
+	font-size: 20px;
+	margin: 0 15px;
+	background-color: transparent;
+}
+.sort_by button:hover {
+	color: #f43659;
+}
+.films {
+	
+}
+.one_film {
+	margin: 30px 20px
+}
+
+.film_description {
+	margin-top: 10px;
+}
+
+.film_description .release_year {
+	float: right;
+	border: 2px solid #969696;
+	border-radius: 5px;
+	padding: 4px 15px;
+}
+
+.film_description .show_title {
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.film_description .category {
+	font-size: 18px;
+}
+
+.discography {
+	padding: 0 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+/*------------footer--------*/
+.footer {
+	background: #534b42;
+	height: 50px;
+	margin-top: 30px;
+}
+.footer .footer_label {
+	padding: 0 100px;
+	line-height: 50px;
+}
+.footer p {
+	color: #f43659;
+	font-size: 22px;
+}
