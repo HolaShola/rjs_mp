@@ -1,4 +1,3 @@
-/*-----------films-----------*/
 .sort {
 	height: 70px;
 	padding: 0 100px;
@@ -25,29 +24,9 @@
 .sort_by button:hover {
 	color: #f43659;
 }
-.films {
-
-}
-.one_film {
-	margin: 30px 20px
-}
-
-.film_description {
-	margin-top: 10px;
-}
-
-.film_description .release_year {
-	float: right;
-	border: 2px solid #969696;
-	border-radius: 5px;
-	padding: 4px 15px;
-}
-
-.film_description .show_title {
-	text-transform: uppercase;
-	font-size: 20px;
-}
-
-.film_description .category {
-	font-size: 18px;
+.discography {
+	padding: 0 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }

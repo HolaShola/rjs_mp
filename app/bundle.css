@@ -1,0 +1,148 @@
+.header_label p {
+	color: #f43659;
+	font-size: 22px;
+	padding: 20px 0;
+}.header_search_label p {
+	text-transform: uppercase;
+	padding: 20px 0;
+	font-size: 22px;
+	color: #fff;
+}
+.header_search input:first-child {
+	box-sizing: border-box;
+	width: 100%;
+	height: 65px;
+	background-color: #000;
+	border-bottom: 2px solid #f43659;
+	padding: 0 0 0 30px;
+	color: #fff;
+	font-size: 20px;
+}
+.header_search input:last-child {
+	float: right;
+	width: 20%;
+	height: 45px;
+	margin: 20px 0 0 0;
+	background-color: #f43659;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+.header_search input:last-child:hover {
+	background-color: #983c47;
+	color: #827b7d;
+}
+
+.search_filters {
+	padding: 20px 0;
+}
+.header_search .search_filters p {
+	display: inline-block;
+	padding: 15px 0 0 0;
+	font-size: 18px;
+}
+.search_filters button {
+	margin: 0 10px;
+	padding: 5px 20px;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 3px;
+	text-transform: uppercase;
+	background-color: #3f3c40;
+}
+.search_filters button:hover {
+	background-color: #f43659;
+}* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+button {
+	cursor: pointer;
+}
+.header {
+	background: linear-gradient(
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)
+		),
+	url(https://goo.gl/Nv8423);
+	background-position: 82% 22%;
+}
+.header {
+	padding: 0 100px 30px;
+}
+.one_film {
+	margin: 30px 20px
+}
+
+.film_description {
+	margin-top: 10px;
+}
+
+.film_description .release_year {
+	float: right;
+	border: 2px solid #969696;
+	border-radius: 5px;
+	padding: 4px 15px;
+}
+
+.film_description .show_title {
+	text-transform: uppercase;
+	font-size: 20px;
+}
+
+.film_description .category {
+	font-size: 18px;
+}
+/*
+.discography {
+	padding: 0 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+*/.sort {
+	height: 70px;
+	padding: 0 100px;
+	margin-bottom: 30px;
+	background-color: #ececec;
+	line-height: 70px;
+	font-size: 22px;
+}
+.sort div:first-child {
+	display: inline-block;
+}
+.sort_by p {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+.sort_by {
+	float: right;
+}
+.sort_by button {
+	font-size: 20px;
+	margin: 0 15px;
+	background-color: transparent;
+}
+.sort_by button:hover {
+	color: #f43659;
+}
+.discography {
+	padding: 0 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}.footer {
+	background: #534b42;
+	height: 50px;
+	margin-top: 30px;
+}
+.footer .footer_label {
+	padding: 0 100px;
+	line-height: 50px;
+}
+.footer p {
+	color: #f43659;
+	font-size: 22px;
+}
