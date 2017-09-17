@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import FilmItem from '../FilmItem/FilmItem';
 import './FilmCollection.css';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import Button from '../Button/Button';
 
 class FilmCollection extends Component {
     render() {
@@ -11,9 +13,10 @@ class FilmCollection extends Component {
                         <p>movies found</p>
                     </div>
                     <div className="sort_by">
-                        <p>Sort by</p>
-                        <button>release date</button>
-                        <button>rating</button>
+                        <ButtonGroup button_label="sort by">
+                            <Button button_type="submit" button_text="release date" />
+                            <Button button_type="submit" button_text="rating" />            
+                        </ButtonGroup>
                     </div>
                 </div>
                 <div className="discography">
