@@ -1,7 +1,7 @@
-.header_label {
+.AppTitle {
 	display: inline-block;
 }
-.header_label p {
+.AppTitle p {
 	color: #f43659;
 	font-size: 22px;
 	padding: 20px 0;

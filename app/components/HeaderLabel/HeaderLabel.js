@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import './HeaderLabel.css';
 
 class HeaderLabel extends Component {
@@ -11,4 +11,4 @@ class HeaderLabel extends Component {
     }
 }
 
-export default HeaderLabel
+export default HeaderLabel*/
