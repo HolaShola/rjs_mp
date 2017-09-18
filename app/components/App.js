@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import Header from './Header/Header';
-import Search from './Search/Search';
-import FilmsCollection from './FilmsCollection/FilmCollection';
-import Footer from './Footer/Footer';
+import FilmsCollection from './FilmsCollection';
+import FilmDescription from './FilmDescription';
+import Header from './Header';
+import Footer from './Footer';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+    handleClick(e) {
+        this.setState({ count: e })
+    }
     render() {
+        let com = this.state.count === 0 ? <Header /> : <FilmDescription />;
         return (
             <div>
-                <Header />
-                <Search />
-                <FilmsCollection />
+                {com}
+                <FilmsCollection func={(e) => this.handleClick(e)} />
                 <Footer />
             </div>
         );
