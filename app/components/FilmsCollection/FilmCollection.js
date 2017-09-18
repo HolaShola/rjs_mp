@@ -13,19 +13,24 @@ class FilmCollection extends Component {
                         <p>movies found</p>
                     </div>
                     <div className="sort_by">
-                        <ButtonGroup button_label="sort by">
-                            <Button button_type="submit" button_text="release date" />
-                            <Button button_type="submit" button_text="rating" />            
+                        <ButtonGroup label="sort by">
+                            <Button type="submit" text="release date" />
+                            <Button type="submit" text="rating" />            
                         </ButtonGroup>
                     </div>
                 </div>
                 <div className="discography">
-                    <FilmItem src={"https://netflixroulette.net/api/posters/60032563.jpg"} />
-                    <FilmItem src={"https://netflixroulette.net/api/posters/60031236.jpg"} />
-                    <FilmItem src={"https://netflixroulette.net/api/posters/880640.jpg"} func={(e) => this.props.func(e)} id="3"/>
-                    <FilmItem src={"https://netflixroulette.net/api/posters/60010514.jpg"} />
-                    <FilmItem src={"https://netflixroulette.net/api/posters/902003.jpg"} />
-                    <FilmItem src={"https://netflixroulette.net/api/posters/520179.jpg"} />
+                    {this.props.films.map(film => 
+                        <FilmItem
+                            id={film.id}
+                            key={film.id}
+                            posterUrl={film.posterUrl}
+                            release_year={film.release_year}
+                            show_title={film.show_title}
+                            category={film.category}
+                            onClick={(id) => this.props.func(id)}
+                        />)
+                    }    
                 </div>
             </div>
         )

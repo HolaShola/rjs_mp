@@ -4,7 +4,7 @@ import Button from '../Button';
 
 const ButtonGroup = (props) => (
    <div>
-       <p>{props.button_label}</p>
+       <p>{props.label}</p>
        {props.children}
    </div>
 )

@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import HeaderLabel from '../HeaderLabel';
+import AppTitle from '../AppTitle';
 import Search from '../Search';
 import './Header.css';
 
-class Header extends Component {
-    render() {
-        return (
-            <div className="header">
-                <HeaderLabel />
-                <Search />
-            </div>
-        )
-    }
-}
+const Header = () => (
+    <div className="header">
+        <AppTitle />
+        <Search />
+    </div>
+);
 
 export default Header
