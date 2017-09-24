@@ -7,7 +7,7 @@ import Button from '../Button';
 class FilmCollection extends Component { 
     render(props) {
         return (
-            <div className="films">
+            <div className="FilmCollection">
                 <div className="sort">
                     <div className="search_number_result">
                         <p>movies found</p>

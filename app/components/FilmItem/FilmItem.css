@@ -1,4 +1,4 @@
-.one_film {
+.FilmItem {
 	margin: 30px 20px
 }
 
@@ -21,11 +21,3 @@
 .film_description .category {
 	font-size: 18px;
 }
-/*
-.discography {
-	padding: 0 10px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-*/

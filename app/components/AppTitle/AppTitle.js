@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './AppTitle.css';
 
 const AppTitle = () => (
-    <div className="header_label">
+    <div className="AppTitle">
         <p>nextflixroulette</p>
     </div>
 );

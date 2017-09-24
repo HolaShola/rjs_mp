@@ -14,9 +14,9 @@ class Search extends Component {
                         <input type="submit" name="" defaultValue="search" />
                     </form>
                     <div className="search_filters">
-                        <ButtonGroup button_label="search by">
-                            <Button button_type="submit" button_text="title" />
-                            <Button button_type="submit" button_text="director" />            
+                        <ButtonGroup label="search by">
+                            <Button type="submit" text="title" />
+                            <Button type="submit" text="director" />            
                         </ButtonGroup>
                     </div>
                 </div>

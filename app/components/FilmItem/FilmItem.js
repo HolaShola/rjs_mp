@@ -4,7 +4,7 @@ import './FilmItem.css';
 class FilmItem extends Component {
     render() {
         return (
-            <div className="one_film" onClick={() => this.props.onClick(this.props.id)} >
+            <div className="FilmItem" onClick={() => this.props.onClick(this.props.id)} >
                 <div>
                     <img src={this.props.posterUrl} width="320" height="450" />
                 </div>
