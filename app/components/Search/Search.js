@@ -11,7 +11,7 @@ class Search extends Component {
                 <div className="header_search">
                     <form>
                         <input type="text" name="" defaultValue="Quentin Tarantino" />
-                        <input type="submit" name="" defaultValue="search" />
+                        <Button type="submit" text="search" />
                     </form>
                     <div className="search_filters">
                         <ButtonGroup label="search by">
