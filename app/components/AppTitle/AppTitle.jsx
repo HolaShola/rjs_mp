@@ -7,4 +7,4 @@ const AppTitle = () => (
     </div>
 );
 
-export default AppTitle
+export default AppTitle;

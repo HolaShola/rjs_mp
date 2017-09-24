@@ -7,8 +7,30 @@ import Footer from './Footer';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { film_id: 0 };
+        this.state = {
+            film_id: 0,
+            films: []
+        };
     }
+
+    fetch_send() {
+    //    fetch('https://jsonplaceholder.typicode.com/users')
+      fetch('https://netflixroulette.net/api/api.php?director=Quentin%20Tarantino')  
+        .then(response => response.json())
+        .then(data => {
+          this.setState({
+            films: data
+          })
+        })
+        .catch(function(error) {
+          console.log('parsing failed', error);
+        });
+    }
+
+    componentDidMount() {
+        this.fetch_send();
+    }
+
     handleClick(id) {
         this.setState({ film_id: id })
     }
@@ -75,6 +97,7 @@ class App extends Component {
             runtime: "98 min"    
         }
     ];
+
     render() {
         let changeComponent = this.state.film_id === 0 ? <Header /> : <FilmDescription
                                                                           posterUrl={this.films[2].posterUrl}
