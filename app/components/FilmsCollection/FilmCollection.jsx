@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import FilmItem from '../FilmItem';
 import './FilmCollection.css';
 import ButtonGroup from '../ButtonGroup';
@@ -20,20 +21,21 @@ const FilmCollection = props => (
     </div>
     <div className="discography">
       {props.films.map(film =>
-        (<FilmItem
-          id={film.unit}
-          key={film.unit}
-          posterUrl={film.poster}
-          release_year={film.release_year}
-          show_title={film.show_title}
-          category={film.category}
-          director={film.director}
-          show_cast={film.show_cast}
-          summary={film.summary}
-          onClick={id => props.func(id)}
-        />),
-      )
-      }
+        (<Link to={`/film/${film.show_title}`}>
+          <FilmItem
+            id={film.unit}
+            key={film.unit}
+            posterUrl={film.poster}
+            release_year={film.release_year}
+            show_title={film.show_title}
+            category={film.category}
+            director={film.director}
+            show_cast={film.show_cast}
+            summary={film.summary}
+            onClick={showTitle => props.func(showTitle)}
+          />
+        </Link>),
+      )}
     </div>
   </div>
 );

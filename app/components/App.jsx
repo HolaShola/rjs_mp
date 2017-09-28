@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import { Route } from 'react-router-dom';
 import FilmsCollection from './FilmsCollection';
 import FilmDescription from './FilmDescription';
+import SearchResult from './SearchResult';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -9,7 +11,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      film_id: 0,
       films: [],
       currentFilm: {},
     };
@@ -26,22 +27,18 @@ class App extends Component {
       .catch(error => console.log('error', error));
   }
 
-  handleClick(id) {
-    console.log(id);
-    this.setState({ film_id: id });
-    const currentFilm = this.state.films.find(film => film.unit === id);
-    this.setState({ currentFilm: currentFilm });
+  handleClick(showTitle) {
+    const currentFilm = this.state.films.find(film => film.show_title === showTitle);
+    this.setState({ currentFilm });
   }
 
   render() {
-    const changeComponent = this.state.film_id === 0
-      ? <Header />
-      : <FilmDescription currentFilm={this.state.currentFilm} />;
     return (
       <div>
-        {changeComponent}
+        <Route exact path="/" component={Header} />
+        <Route path="/search/:searchQuery" render={(searchQuery => <SearchResult searchQuery={searchQuery} allFilms={this.state.films} />)} />
         <FilmsCollection
-          func={id => this.handleClick(id)}
+          func={showTitle => this.handleClick(showTitle)}
           films={this.state.films}
         />
         <Footer />

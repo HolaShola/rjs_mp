@@ -1,6 +1,11 @@
 const express = require('express');
 
 const app = express();
+
+app.get('*', function (req, res) {
+  res.sendFile(__dirname)
+})
+
 app.use(express.static(__dirname));
 
 app.listen(3030);

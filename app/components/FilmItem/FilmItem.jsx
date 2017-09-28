@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './FilmItem.css';
 
 const FilmItem = props => (
-  <div className="FilmItem" onClick={() => props.onClick(props.id)} >
+  <div className="FilmItem" onClick={() => props.onClick(props.show_title)} >
     <div>
       <img alt="posterUrl" src={props.posterUrl} width="320" height="450" />
     </div>
