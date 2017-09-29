@@ -4,10 +4,10 @@ import Search from '../Search';
 import './Header.css';
 
 const Header = () => (
-    <div className="header">
-        <AppTitle />
-        <Search />
-    </div>
+  <div className="header">
+    <AppTitle />
+    <Search />
+  </div>
 );
 
-export default Header
+export default Header;

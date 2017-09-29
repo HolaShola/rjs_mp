@@ -8,4 +8,3 @@ const AppTitle = () => (
 );
 
 export default AppTitle;
-

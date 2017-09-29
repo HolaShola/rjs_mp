@@ -1,10 +1,11 @@
-.header {
+.FilmDescription {
 	background: linear-gradient(
 			rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0.6)
 		),
 		url(https://goo.gl/Nv8423);
 	background-position: 82% 22%;
+	padding: 0 100px;
 }
 .header_label .header_label_up {
 	margin-bottom: 30px;
