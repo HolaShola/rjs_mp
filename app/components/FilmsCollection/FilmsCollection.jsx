@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FilmItem from '../FilmItem';
-import './FilmCollection.css';
+import './FilmsCollection.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 import { Link } from 'react-router-dom'
 
-const FilmCollection = props => (
+const FilmsCollection = props => (
   <div className="FilmCollection">
     <div className="sort">
       <div className="search_number_result">
@@ -21,9 +21,8 @@ const FilmCollection = props => (
     </div>
     <div className="discography">
       {props.films.map(film =>
-        <Link to={`/film/${film.show_title}`}>(<FilmItem
+        <Link to={`/film/${film.show_title}`} key={film.unit}><FilmItem
           id={film.unit}
-          key={film.unit}
           posterUrl={film.poster}
           release_year={film.release_year}
           show_title={film.show_title}
@@ -32,14 +31,14 @@ const FilmCollection = props => (
           show_cast={film.show_cast}
           summary={film.summary}
           onClick={id => props.func(id)}
-        />)</Link>,
+        /></Link>,
       )
       }
     </div>
   </div>
 );
-FilmCollection.propTypes = {
+FilmsCollection.propTypes = {
   films: PropTypes.array.isRequired,
 };
 
-export default FilmCollection;
+export default FilmsCollection;

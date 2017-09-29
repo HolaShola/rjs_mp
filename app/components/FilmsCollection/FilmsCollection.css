@@ -1,3 +1,7 @@
+.FilmCollection {
+	
+}
+
 .sort {
 	height: 70px;
 	padding: 0 100px;
@@ -25,7 +29,7 @@
 	color: #f43659;
 }
 .discography {
-	padding: 0 10px;
+	padding: 0 100px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;

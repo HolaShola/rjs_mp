@@ -5,7 +5,7 @@ import AppTitle from '../AppTitle';
 import Button from '../Button';
 
 const FilmDescription = props => (
-  <div className="header">
+  <div className="FilmDescription">
     <div className="header_label">
       <div className="header_label_up">
         <AppTitle />

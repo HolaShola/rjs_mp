@@ -1,8 +1,12 @@
+.header_search_label {
+	margin: 0 100px;
+}
+
 .header_search_label p {
 	text-transform: uppercase;
 	padding: 20px 0;
 	font-size: 22px;
-	color: #fff;
+	color: #0A125F;
 }
 .header_search input:first-child {
 	box-sizing: border-box;

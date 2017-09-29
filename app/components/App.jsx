@@ -6,6 +6,8 @@ import FilmDescription from './FilmDescription';
 import Header from './Header';
 import Footer from './Footer';
 
+const About = () => <h1>HelloAbout</h1>;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,6 +42,7 @@ class App extends Component {
           path="/film"
           render={() => <FilmDescription currentFilm={this.state.currentFilm} />}
         />
+        <Route path="/about" component={About} />
         <FilmsCollection
           func={id => this.handleClick(id)}
           films={this.state.films}
