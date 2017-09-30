@@ -1,9 +1,15 @@
 .FilmItem {
-	margin: 30px 20px
+	width: 320px;
+	height: 508px;
+	margin: 30px 20px;
 }
 
 .film_description {
 	margin-top: 10px;
+}
+
+.FilmItem_img {
+	height: 450px;
 }
 
 .film_description .release_year {

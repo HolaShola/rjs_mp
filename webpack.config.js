@@ -11,6 +11,8 @@ module.exports = {
     path: path.resolve(__dirname, 'app'),
   },
 
+  devtool: 'source-map',
+
   resolve: {
     extensions: ['.js', '.jsx'],
   },

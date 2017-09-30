@@ -24,7 +24,7 @@ const FilmsCollection = props => (
         ? props.films.message
         :
         props.films.map(film =>
-          (<Link to={`/film/title=${film.show_title}&director=${film.director}`} key={film.unit}><FilmItem
+          (<Link to={`/film/title=${film.show_title}`} key={film.unit}><FilmItem
             id={film.unit}
             posterUrl={film.poster}
             release_year={film.release_year}

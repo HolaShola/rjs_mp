@@ -30,7 +30,7 @@ class SearchScreen extends Component {
       <div>
         <AppTitle />
         <Search />
-        <FilmsCollection films={this.state.films} />
+        <FilmsCollection films={this.state.films} func={id => this.handleClick(id)} />
         <Footer />
       </div>
     );

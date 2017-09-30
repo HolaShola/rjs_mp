@@ -7,6 +7,7 @@ import FilmScreen from './FilmScreen';
 const App = () => (
   <div>
     <Route exact path="/" component={HomeScreen} />
+    <Route exact path="/search" component={SearchScreen} />
     <Route
       path="/search/:searchQuery"
       render={searchQuery => (

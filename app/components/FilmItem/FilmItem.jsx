@@ -4,7 +4,7 @@ import './FilmItem.css';
 
 const FilmItem = props => (
   <div className="FilmItem" >
-    <div>
+    <div className="FilmItem_img">
       <img alt="posterUrl" src={props.posterUrl} width="320" height="450" />
     </div>
     <div className="film_description">
