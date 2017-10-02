@@ -14,11 +14,15 @@ class FilmScreen extends Component {
   }
 
   componentDidMount() {
-    this.fetchSend();
+    this.fetchSend(this.props);
   }
 
-  fetchSend() {
-    fetch(`https://netflixroulette.net/api/api.php?title=${this.props.searchQuery.match.url.replace('/film/title=', '')}`)
+  componentWillReceiveProps(nextProps) {
+    this.fetchSend(nextProps);
+  }
+
+  fetchSend(anyProps) {
+    fetch(`https://netflixroulette.net/api/api.php?${anyProps.searchQuery.match.url.replace('/film/', '')}`)
       .then(response => response.json())
       .then(data => this.setState({ currentFilm: data }))
       .catch(error => console.log('error', error));

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './FilmDescription.css';
 import AppTitle from '../AppTitle';
 import Button from '../Button';
@@ -9,7 +10,9 @@ const FilmDescription = props => (
     <div className="header_label">
       <div className="header_label_up">
         <AppTitle />
-        <Button type="submit" text="search" />
+        <Link to="/">
+          <Button type="submit" text="search" />
+        </Link>
       </div>
       <div className="header_down">
         <div className="header_img">

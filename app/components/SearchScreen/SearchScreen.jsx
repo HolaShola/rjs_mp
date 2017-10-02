@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
-import AppTitle from '../AppTitle';
-import Search from '../Search';
+import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
 import './SearchScreen.css';
@@ -19,7 +18,7 @@ class SearchScreen extends Component {
   }
 
   fetchSend() {
-    fetch(`https://netflixroulette.net/api/api.php?director=${this.props.searchQuery.match.url.replace('/search/', '')}`)
+    fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
       .then(response => response.json())
       .then(data => this.setState({ films: data }))
       .catch(error => console.log('error', error));
@@ -28,8 +27,7 @@ class SearchScreen extends Component {
   render() {
     return (
       <div>
-        <AppTitle />
-        <Search />
+        <Header />
         <FilmsCollection films={this.state.films} func={id => this.handleClick(id)} />
         <Footer />
       </div>

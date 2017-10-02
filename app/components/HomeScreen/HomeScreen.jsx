@@ -1,14 +1,12 @@
 import React from 'react';
-import AppTitle from '../AppTitle';
-import Search from '../Search';
+import Header from '../Header';
 import NotFound from '../NotFound';
 import Footer from '../Footer';
 import './HomeScreen.css';
 
 const HomeScreen = () => (
   <div className="HomeScreen">
-    <AppTitle />
-    <Search />
+    <Header />
     <NotFound />
     <Footer />
   </div>
