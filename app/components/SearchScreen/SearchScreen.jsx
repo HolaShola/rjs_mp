@@ -10,6 +10,7 @@ class SearchScreen extends Component {
     super(props);
     this.state = {
       films: [],
+      loading: true,
     };
   }
 
@@ -20,7 +21,19 @@ class SearchScreen extends Component {
   fetchSend() {
     fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
       .then(response => response.json())
-      .then(data => this.setState({ films: data }))
+      .then((data) => {
+        console.log(data);
+        if (data.errorcode) {
+          console.log(data.message);
+          window.location = "/";
+        } else {
+          if (Array.isArray(data)) {
+            this.setState({ films: data, loading: false });
+          } else {
+            this.setState({ films: [data], loading: false });
+          }
+        }
+      })
       .catch(error => console.log('error', error));
   }
 
@@ -28,7 +41,7 @@ class SearchScreen extends Component {
     return (
       <div>
         <Header />
-        <FilmsCollection films={this.state.films} func={id => this.handleClick(id)} />
+        <FilmsCollection films={this.state.films} loading={this.state.loading} func={id => this.handleClick(id)} />
         <Footer />
       </div>
     );

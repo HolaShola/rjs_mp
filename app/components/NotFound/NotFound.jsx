@@ -3,7 +3,9 @@ import './NotFound.css';
 
 const NotFound = () => (
   <div className="NotFound">
-    not found
+    <div className="NotFound-inner">
+      No films found
+    </div>
   </div>
 );
 
