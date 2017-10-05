@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import RaisedButton from 'material-ui/RaisedButton';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
@@ -20,8 +21,8 @@ class Search extends Component {
   }
 
   handleSearchClick = () => {
-  //  console.log(this.input.value)
-  //  this.setState = (state => ({searchValue: this.input.value}));
+  //  this.input.value = "";
+  //  this.setState({searchValue: ""})
   };
 
   handleSearchByChange = (index) => {
@@ -40,7 +41,8 @@ class Search extends Component {
             name=""
             defaultValue={this.state.searchValue}
             onChange={this.handleChange}
-            ref={(input) => { this.input = input; }}
+            ref="xxx"
+            ref={(input) => { this.input = input }}
           />
           <Link to={`/search/${this.state.buttonValue}=${this.state.searchValue}`}><Button
             type="submit"
@@ -49,8 +51,8 @@ class Search extends Component {
           /></Link>
           <div className="search_filters">
             <ButtonGroup label="search by" onChange={this.handleSearchByChange}>
-              <Button type="submit" text="title" />
-              <Button type="submit" text="director" />
+              <Button type="raised" text="title" />
+              <Button type="raised" text="director" />
             </ButtonGroup>
           </div>
         </div>

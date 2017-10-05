@@ -63,8 +63,8 @@ class FilmsCollection extends Component {
           </div>
           <div className="sort_by">
             <ButtonGroup label="sort by" onChange={this.handleSearchByChange}>
-              <Button type="submit" text="release date" />
-              <Button type="submit" text="rating" />
+              <Button type="flat" text="release date" />
+              <Button type="flat" text="rating" />
             </ButtonGroup>
           </div>
         </div>

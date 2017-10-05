@@ -10,6 +10,7 @@
 
 .FilmItem_img {
 	height: 450px;
+	border: 1px solid black;
 }
 
 .film_description .release_year {

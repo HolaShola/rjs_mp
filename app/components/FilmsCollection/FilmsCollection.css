@@ -20,11 +20,11 @@
 .sort_by {
 	float: right;
 }
-.sort_by button {
+/*.sort_by button {
 	font-size: 20px;
 	margin: 0 15px;
 	background-color: transparent;
-}
+}*/
 .sort_by button:hover {
 	color: #f43659;
 }

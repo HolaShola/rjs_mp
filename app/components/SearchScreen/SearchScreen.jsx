@@ -25,13 +25,11 @@ class SearchScreen extends Component {
         console.log(data);
         if (data.errorcode) {
           console.log(data.message);
-          window.location = "/";
+          window.location = '/';
+        } else if (Array.isArray(data)) {
+          this.setState({ films: data, loading: false });
         } else {
-          if (Array.isArray(data)) {
-            this.setState({ films: data, loading: false });
-          } else {
-            this.setState({ films: [data], loading: false });
-          }
+          this.setState({ films: [data], loading: false });
         }
       })
       .catch(error => console.log('error', error));
@@ -41,7 +39,11 @@ class SearchScreen extends Component {
     return (
       <div>
         <Header />
-        <FilmsCollection films={this.state.films} loading={this.state.loading} func={id => this.handleClick(id)} />
+        <FilmsCollection
+          films={this.state.films}
+          loading={this.state.loading}
+          func={id => this.handleClick(id)}
+        />
         <Footer />
       </div>
     );

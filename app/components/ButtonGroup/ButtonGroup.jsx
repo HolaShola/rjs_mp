@@ -15,7 +15,7 @@ class ButtonGroup extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = { activeIndex: "" };
   }
 
   render() {
@@ -24,6 +24,7 @@ class ButtonGroup extends Component {
         <p>{this.props.label}</p>
         {React.Children.map(this.props.children, (child, index) =>
           React.cloneElement(child, {
+            isActive: index === this.state.activeIndex,
             onClick: () => {
               this.setState({ activeIndex: index });
               this.props.onChange(index);
@@ -36,3 +37,4 @@ class ButtonGroup extends Component {
 }
 
 export default ButtonGroup;
+

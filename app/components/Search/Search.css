@@ -2,7 +2,7 @@
 	text-transform: uppercase;
 	padding: 20px 0;
 	font-size: 22px;
-	color: #0A125F;
+	color: #cbcbcb;
 }
 .header_search input:first-child {
 	box-sizing: border-box;
@@ -38,7 +38,7 @@
 	padding: 15px 0 0 0;
 	font-size: 18px;
 }
-.search_filters button {
+/*.search_filters button {
 	margin: 0 10px;
 	padding: 5px 20px;
 	font-size: 18px;
@@ -46,7 +46,7 @@
 	border-radius: 3px;
 	text-transform: uppercase;
 	background-color: #3f3c40;
-}
+}*/
 .search_filters button:hover {
 	background-color: #f43659;
 }
