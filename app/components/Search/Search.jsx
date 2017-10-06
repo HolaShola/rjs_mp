@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import RaisedButton from 'material-ui/RaisedButton';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
@@ -9,26 +8,20 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-
+    this.handleSearchByChange = this.handleSearchByChange.bind(this);
     this.state = {
-      searchValue: "Quentin Tarantino",
-      buttonValue: "director"
+      searchValue: '',
+      buttonValue: 'title',
     };
   }
 
   handleChange(event) {
-    this.setState({searchValue: event.target.value});
+    this.setState({ searchValue: event.target.value });
   }
 
-  handleSearchClick = () => {
-  //  this.input.value = "";
-  //  this.setState({searchValue: ""})
-  };
-
-  handleSearchByChange = (index) => {
-    console.log(`search click ${index}`);
-    let buttonValue = index == 0 ? "title" : "director";
-    this.setState({buttonValue: buttonValue});
+  handleSearchByChange(index) {
+    const buttonValue = index === 0 ? 'title' : 'director';
+    this.setState({ buttonValue });
   }
 
   render() {
@@ -39,10 +32,9 @@ class Search extends Component {
           <input
             type="text"
             name=""
-            defaultValue={this.state.searchValue}
+            defaultValue=""
             onChange={this.handleChange}
-            ref="xxx"
-            ref={(input) => { this.input = input }}
+            ref={(input) => { this.input = input; }}
           />
           <Link to={`/search/${this.state.buttonValue}=${this.state.searchValue}`}><Button
             type="submit"

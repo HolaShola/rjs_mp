@@ -11,13 +11,13 @@ class FilmsCollection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonValue: ""
+      buttonValue: '',
     };
   }
 
   handleSearchByChange = (index) => {
     index == 0 ? this.sortByReleaseDate() : this.sortByRating();
-    this.setState({buttonValue: index});  
+    this.setState({buttonValue: index});
   }
 
   sortByReleaseDate() {
@@ -34,7 +34,7 @@ class FilmsCollection extends Component {
     } else {
       if (Array.isArray(this.props.films)) {
         return this.props.films.map(film =>
-          (<Link to={`/film/title=${film.show_title}`} key={film.unit}>
+          <Link to={encodeURI(encodeURI(`/film/title=${film.show_title}`))} replace key={film.unit}>
             <FilmItem
               id={film.unit}
               posterUrl={film.poster}
@@ -45,7 +45,7 @@ class FilmsCollection extends Component {
               show_cast={film.show_cast}
               summary={film.summary}
             />
-          </Link>)
+          </Link>
         )
       } else if (this.props.films.errorcode) {
         console.log(this.props.films.message);

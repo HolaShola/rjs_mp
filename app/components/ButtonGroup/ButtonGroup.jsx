@@ -15,7 +15,7 @@ class ButtonGroup extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { activeIndex: "" };
+    this.state = { activeIndex: 0 };
   }
 
   render() {

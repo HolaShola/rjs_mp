@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AppTitle.css';
 
 const AppTitle = () => (
   <div className="AppTitle">
-    <p>nextflixroulette</p>
+    <Link to="/">
+      <p>nextflixroulette</p>
+    </Link>
   </div>
 );
 

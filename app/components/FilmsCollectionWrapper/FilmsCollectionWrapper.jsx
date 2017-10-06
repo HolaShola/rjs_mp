@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FilmsCollection from '../FilmsCollection';
 
 class FilmsCollectionWrapper extends Component {
@@ -29,4 +30,33 @@ class FilmsCollectionWrapper extends Component {
   }
 }
 
+FilmsCollectionWrapper.defaultProps = {
+  currentFilm: {
+    poster: '',
+    unit: 0,
+    show_title: '',
+    rating: '',
+    category: '',
+    runtime: '',
+    release_year: '',
+    summary: '',
+    director: '',
+    show_cast: '',
+  },
+};
+
+FilmsCollectionWrapper.propTypes = {
+  currentFilm: PropTypes.shape({
+    poster: PropTypes.string,
+    unit: PropTypes.number,
+    show_title: PropTypes.string,
+    rating: PropTypes.string,
+    category: PropTypes.string,
+    runtime: PropTypes.string,
+    release_year: PropTypes.string,
+    summary: PropTypes.string,
+    director: PropTypes.string,
+    show_cast: PropTypes.string,
+  }),
+};
 export default FilmsCollectionWrapper;

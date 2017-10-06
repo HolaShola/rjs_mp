@@ -44,8 +44,34 @@ const FilmDescription = props => (
   </div>
 );
 
+FilmDescription.defaultProps = {
+  currentFilm: {
+    poster: '',
+    unit: 0,
+    show_title: '',
+    rating: '',
+    category: '',
+    runtime: '',
+    release_year: '',
+    summary: '',
+    director: '',
+    show_cast: '',
+  },
+};
+
 FilmDescription.propTypes = {
-  currentFilm: PropTypes.object.isRequired,
+  currentFilm: PropTypes.shape({
+    poster: PropTypes.string,
+    unit: PropTypes.number,
+    show_title: PropTypes.string,
+    rating: PropTypes.string,
+    category: PropTypes.string,
+    runtime: PropTypes.string,
+    release_year: PropTypes.string,
+    summary: PropTypes.string,
+    director: PropTypes.string,
+    show_cast: PropTypes.string,
+  }),
 };
 
 export default FilmDescription;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import PropTypes from 'prop-types';
 import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
@@ -49,5 +50,19 @@ class SearchScreen extends Component {
     );
   }
 }
+
+SearchScreen.defaultProps = {
+  searchQuery: {
+    history: {},
+    location: {},
+    match: {},
+  },
+  match: {},
+};
+
+SearchScreen.propTypes = {
+  searchQuery: PropTypes.objectOf(PropTypes.object),
+  match: PropTypes.objectOf(PropTypes.element),
+};
 
 export default SearchScreen;
