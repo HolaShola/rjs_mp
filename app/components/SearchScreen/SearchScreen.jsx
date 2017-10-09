@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
@@ -30,7 +31,7 @@ class SearchScreen extends Component {
         } else if (Array.isArray(data)) {
           this.setState({ films: data, loading: false });
         } else {
-          this.setState({ films: [data], loading: false });
+          window.location = `/#/film/title=${data.show_title}`;
         }
       })
       .catch(error => console.log('error', error));

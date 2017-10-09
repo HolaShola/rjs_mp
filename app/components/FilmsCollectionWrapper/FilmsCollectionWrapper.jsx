@@ -11,10 +11,10 @@ class FilmsCollectionWrapper extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const mainDirector = nextProps.currentFilm.director.split(',').length > 1
-      ? nextProps.currentFilm.director.split(',')[0]
-      : nextProps.currentFilm.director;
+  componentDidMount() {
+    const mainDirector = this.props.currentFilm.director.split(',').length > 1
+      ? this.props.currentFilm.director.split(',')[0]
+      : this.props.currentFilm.director;
     fetch(`https://netflixroulette.net/api/api.php?director=${mainDirector}`)
       .then(response => response.json())
       .then(data => this.setState({ films: data, loading: false }))

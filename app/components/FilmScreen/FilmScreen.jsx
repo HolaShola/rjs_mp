@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import FilmDescription from '../FilmDescription/';
 import FilmsCollectionWrapper from '../FilmsCollectionWrapper';
 import Footer from '../Footer';
+import Loader from '../Loader';
 import './FilmScreen.css';
 
 class FilmScreen extends Component {
@@ -10,6 +11,7 @@ class FilmScreen extends Component {
     super(props);
     this.state = {
       currentFilm: {},
+      loading: true,
     };
   }
 
@@ -24,15 +26,19 @@ class FilmScreen extends Component {
   fetchSend(anyProps) {
     fetch(`https://netflixroulette.net/api/api.php?${anyProps.searchQuery.match.url.replace('/film/', '')}`)
       .then(response => response.json())
-      .then(data => this.setState({ currentFilm: data }))
+      .then(data => this.setState({ currentFilm: data, loading: false }))
       .catch(error => console.log('error', error));
   }
 
   render() {
     return (
       <div className="FilmScreen">
-        <FilmDescription currentFilm={this.state.currentFilm} />
-        <FilmsCollectionWrapper currentFilm={this.state.currentFilm} />
+        {this.state.loading
+          ? <Loader />
+          : (<div><FilmDescription currentFilm={this.state.currentFilm} />
+            <FilmsCollectionWrapper currentFilm={this.state.currentFilm} />
+          </div>)
+        }
         <Footer />
       </div>
     );
