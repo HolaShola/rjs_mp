@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'whatwg-fetch';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
@@ -16,33 +17,33 @@ class SearchScreen extends Component {
     };
   }
 
-  componentDidMount() {
-    this.fetchSend();
-  }
+  // componentDidMount() {
+  //   this.fetchSend();
+  // }
 
-  fetchSend() {
-    fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.errorcode) {
-          console.log(data.message);
-          window.location = '/';
-        } else if (Array.isArray(data)) {
-          this.setState({ films: data, loading: false });
-        } else {
-          window.location = `/#/film/title=${data.show_title}`;
-        }
-      })
-      .catch(error => console.log('error', error));
-  }
+  // fetchSend() {
+  //   fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.errorcode) {
+  //         console.log(data.message);
+  //         window.location = '/';
+  //       } else if (Array.isArray(data)) {
+  //         this.setState({ films: data, loading: false });
+  //       } else {
+  //         window.location = `/#/film/title=${data.show_title}`;
+  //       }
+  //     })
+  //     .catch(error => console.log('error', error));
+  // }
 
   render() {
     return (
       <div>
         <Header />
         <FilmsCollection
-          films={this.state.films}
+          films={this.props.films}
           loading={this.state.loading}
           func={id => this.handleClick(id)}
         />
@@ -61,9 +62,20 @@ SearchScreen.defaultProps = {
   match: {},
 };
 
-SearchScreen.propTypes = {
-  searchQuery: PropTypes.objectOf(PropTypes.object),
-  match: PropTypes.objectOf(PropTypes.element),
-};
+// function mapStateToProps(state) {
+//   return {
+//     films: state.films,
+//   }
+// }
 
-export default SearchScreen;
+// function mapActionsToProps(dispatch) {
+//   return {
+//     handleSearchClick() {
+//       dispatch({
+//         type: 'LOAD_DATA',
+//       });
+//     }
+//   }
+// }
+
+// export default connect(mapStateToProps, mapActionsToProps)(SearchScreen);

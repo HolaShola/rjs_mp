@@ -1,12 +1,41 @@
-import React from 'react';
-import './NotFound.css';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import FilmsCollection from '../FilmsCollection';
 
-const NotFound = () => (
-  <div className="NotFound">
-    <div className="NotFound-inner">
-      No films found
-    </div>
-  </div>
-);
+class NotFound extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      films: [],
+    };
+  }
 
-export default NotFound;
+  render() {
+    return (
+      <div>
+        <FilmsCollection
+          films={this.props.films}
+        />
+      </div>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    films: state.films,
+  }
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+    handleSearchClick() {
+      dispatch({
+        type: 'LOAD_DATA',
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(NotFound);

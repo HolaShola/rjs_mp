@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
@@ -7,22 +8,22 @@ import Button from '../Button';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSearchByChange = this.handleSearchByChange.bind(this);
-    this.state = {
-      searchValue: '',
-      buttonValue: 'title',
-    };
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSearchByChange = this.handleSearchByChange.bind(this);
+    // this.state = {
+    //   searchValue: '',
+    //   buttonValue: 'title',
+    // };
   }
 
-  handleChange(event) {
-    this.setState({ searchValue: event.target.value });
-  }
+  // handleChange(event) {
+  //   this.setState({ searchValue: event.target.value });
+  // }
 
-  handleSearchByChange(index) {
-    const buttonValue = index === 0 ? 'title' : 'director';
-    this.setState({ buttonValue });
-  }
+  // handleSearchByChange(index) {
+  //   const buttonValue = index === 0 ? 'title' : 'director';
+  //   this.setState({ buttonValue });
+  // }
 
   render() {
     return (
@@ -36,10 +37,10 @@ class Search extends Component {
             onChange={this.handleChange}
             ref={(input) => { this.input = input; }}
           />
-          <Link to={`/search/${this.state.buttonValue}=${this.state.searchValue}`}><Button
+          <Link to="/search/yy"><Button
             type="submit"
             text="search"
-            onClick={this.handleSearchClick}
+            onClick={this.props.handleSearchClick}
           /></Link>
           <div className="search_filters">
             <ButtonGroup label="search by" onChange={this.handleSearchByChange}>
@@ -53,4 +54,20 @@ class Search extends Component {
   }
 }
 
-export default Search;
+function mapStateToProps(state) {
+  return {
+    users: state.users,
+  }
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+    handleSearchClick() {
+      dispatch({
+        type: 'LOAD_DATA',
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Search);
