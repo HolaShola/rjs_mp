@@ -14,7 +14,3 @@ ReactDOM.render((
     </BrowserRouter>
   </Provider>
 ), document.getElementById('root'));
-
-setTimeout(() => {
-    store.dispatch({ type: 'LOAD_DATA' });
-}, 1000);

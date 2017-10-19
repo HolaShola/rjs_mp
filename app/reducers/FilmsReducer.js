@@ -1,6 +1,6 @@
 export default function FilmsReducer(state = 0, action) {
   switch (action.type) {
-    case 'RECEIVE_DATA':
+    case 'FETCH_MOVIES_RECEIVE':
       return action.payload;
     default: return state;
   }

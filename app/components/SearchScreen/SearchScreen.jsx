@@ -7,6 +7,7 @@ import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
 import './SearchScreen.css';
+import { getFilms } from '../../actions';
 
 class SearchScreen extends Component {
   constructor(props) {
@@ -17,9 +18,10 @@ class SearchScreen extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.fetchSend();
-  // }
+  componentDidMount() {
+    console.log(this.props.searchQuery.match.url.replace('/search/', ''));
+    getFilms();
+  }
 
   // fetchSend() {
   //   fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
@@ -62,11 +64,11 @@ SearchScreen.defaultProps = {
   match: {},
 };
 
-// function mapStateToProps(state) {
-//   return {
-//     films: state.films,
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    films: state.films,
+  }
+}
 
 // function mapActionsToProps(dispatch) {
 //   return {
@@ -78,4 +80,4 @@ SearchScreen.defaultProps = {
 //   }
 // }
 
-// export default connect(mapStateToProps, mapActionsToProps)(SearchScreen);
+export default connect(mapStateToProps)(SearchScreen);

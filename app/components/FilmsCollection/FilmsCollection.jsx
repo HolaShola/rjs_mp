@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import FilmItem from '../FilmItem';
 import './FilmsCollection.css';
 import ButtonGroup from '../ButtonGroup';
@@ -29,7 +30,7 @@ class FilmsCollection extends Component {
   }
     
   renderDiscography() {
-    if (this.props.loading) {
+    if (this.props.isFetching) {
       return (<Loader />);
     } else {
       if (Array.isArray(this.props.films)) {
@@ -75,5 +76,17 @@ class FilmsCollection extends Component {
     );
   }
 }
-export default FilmsCollection;
 
+function mapStateToProps(state) {
+  return {
+    isFetching: state.isFetching,
+  }
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(FilmsCollection);

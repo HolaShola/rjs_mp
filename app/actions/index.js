@@ -1,4 +1,45 @@
-// import data from '../components/data.json';
+import {
+  FETCH_MOVIES_REQUEST,
+  FETCH_MOVIES_FAILURE,
+  FETCH_MOVIES_RECEIVE
+} from '../constants';
+import data from '../components/data.json';
+
+export const moviesRequest = (bool) => (
+  {
+    type: FETCH_MOVIES_REQUEST,
+    payload: bool,
+  }
+)
+
+export const moviesReceive = (data) => (
+  {
+    type: FETCH_MOVIES_RECEIVE,
+    payload: data,
+  }
+)
+
+export const moviesFetchFailure = (bool) => (
+  {
+    type: FETCH_MOVIES_FAILURE,
+    payload: bool,
+  }
+)
+
+export const getFilms = () => {
+  return dispatch => {
+    dispatch(moviesRequest(true))
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(data)
+        dispatch(moviesRequest(false))
+      }, 1000)
+    })
+      .then(data => {
+        dispatch(moviesReceive(data))
+      });
+  }
+}
 
 // function DataLoading({ dispatch }) {
 //   return function (next) {
@@ -26,5 +67,3 @@
 //         setTimeout(() => resolve(data), 1000)
 //     });
 // }
-
-// export default DataLoading;

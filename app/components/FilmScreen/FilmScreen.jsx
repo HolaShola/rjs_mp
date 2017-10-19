@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import { connect } from 'react-redux';
 import FilmDescription from '../FilmDescription/';
 import FilmsCollectionWrapper from '../FilmsCollectionWrapper';
 import Footer from '../Footer';
@@ -16,19 +17,19 @@ class FilmScreen extends Component {
   }
 
   componentDidMount() {
-    this.fetchSend(this.props);
+  //  this.fetchSend(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    this.fetchSend(nextProps);
+  //  this.fetchSend(nextProps);
   }
 
-  fetchSend(anyProps) {
-    fetch(`https://netflixroulette.net/api/api.php?${anyProps.searchQuery.match.url.replace('/film/', '')}`)
-      .then(response => response.json())
-      .then(data => this.setState({ currentFilm: data, loading: false }))
-      .catch(error => console.log('error', error));
-  }
+  // fetchSend(anyProps) {
+  //   fetch(`https://netflixroulette.net/api/api.php?${anyProps.searchQuery.match.url.replace('/film/', '')}`)
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ currentFilm: data, loading: false }))
+  //     .catch(error => console.log('error', error));
+  // }
 
   render() {
     return (
@@ -45,4 +46,16 @@ class FilmScreen extends Component {
   }
 }
 
-export default FilmScreen;
+function mapStateToProps(state) {
+  return {
+    isFetching: state.isFetching,
+  }
+}
+
+function mapActionsToProps(dispatch) {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(FilmScreen);
