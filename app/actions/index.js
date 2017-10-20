@@ -26,17 +26,34 @@ export const moviesFetchFailure = (bool) => (
   }
 )
 
-export const getFilms = () => {
+// export const getFilms = () => {
+//   return dispatch => {
+//     dispatch(moviesRequest(true))
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         resolve(data)
+//         dispatch(moviesRequest(false))
+//       }, 1000)
+//     })
+//       .then(data => {
+//         dispatch(moviesReceive(data))
+//       });
+//   }
+// }
+
+export const getFilms = (searchValue) => {
+  // Jack+Reacher
+  console.log(searchValue);
   return dispatch => {
     dispatch(moviesRequest(true))
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(data)
+   // fetch("https://api.themoviedb.org/3/movie/76341?api_key=4f7821834291015d1ed75fbd1dab475b")
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=4f7821834291015d1ed75fbd1dab475b&query=${searchValue.replace(" ", "+")}`)
+      .then(response => {
         dispatch(moviesRequest(false))
-      }, 1000)
-    })
+        return response.json()
+      })
       .then(data => {
-        dispatch(moviesReceive(data))
+        dispatch(moviesReceive(data.results))
       });
   }
 }

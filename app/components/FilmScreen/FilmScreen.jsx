@@ -12,7 +12,7 @@ class FilmScreen extends Component {
     super(props);
     this.state = {
       currentFilm: {},
-      loading: true,
+    //  loading: true,
     };
   }
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
-import { getFilms } from '../../actions'
+import { getFilms, getFilms2 } from '../../actions'
 
 class Search extends Component {
   constructor(props) {
@@ -28,7 +28,12 @@ class Search extends Component {
   
   handleSearchClick = () => {
     const { dispatch } = this.props;
-    dispatch(getFilms());
+    dispatch(getFilms(this.state.searchValue));
+  }
+
+  handleSearchClick2 = () => {
+    const { dispatch } = this.props;
+    dispatch(getFilms2(this.state.searchValue));
   }
 
   render() {
@@ -48,6 +53,9 @@ class Search extends Component {
             text="search"
             onClick={this.handleSearchClick}
           /></Link>
+          <button
+            onClick={this.handleSearchClick2}
+          >fetch</button>
           <div className="search_filters">
             <ButtonGroup label="search by" onChange={this.handleSearchByChange}>
               <Button type="raised" text="title" />

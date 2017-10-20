@@ -35,16 +35,16 @@ class FilmsCollection extends Component {
     } else {
       if (Array.isArray(this.props.films)) {
         return this.props.films.map(film =>
-          <Link to={encodeURI(encodeURI(`/film/title=${film.show_title}`))} replace key={film.unit}>
+          <Link to={encodeURI(encodeURI(`/film/title=${film.original_title}`))} replace key={film.id}>
             <FilmItem
-              id={film.unit}
-              posterUrl={film.poster}
-              release_year={film.release_year}
-              show_title={film.show_title}
+              id={film.id}
+              posterUrl={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${film.poster_path}`}
+              release_year={film.release_date}
+              show_title={film.original_title}
               category={film.category}
               director={film.director}
               show_cast={film.show_cast}
-              summary={film.summary}
+              summary={film.overview}
             />
           </Link>
         )

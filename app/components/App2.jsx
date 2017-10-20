@@ -4,6 +4,8 @@ import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import FilmScreen from './FilmScreen';
 
+// api_key=4f7821834291015d1ed75fbd1dab475b
+
 const App = () => (
   <div>
     <Route exact path="/" component={HomeScreen} />
