@@ -16,23 +16,23 @@ const FilmDescription = props => (
       </div>
       <div className="header_down">
         <div className="header_img">
-          <img alt="poster" src={props.currentFilm.poster} />
+          <img alt="poster" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${props.currentFilm.poster_path}`} />
         </div>
         <div className="header_img_description">
           <div className="show_title">
-            <p>{props.currentFilm.show_title}</p>
+            <p>{props.currentFilm.original_title}</p>
           </div>
-          <div className="film_rating">{props.currentFilm.rating}</div>
+          <div className="film_rating">{props.currentFilm.vote_average}</div>
           <div>
             <p className="category">{props.currentFilm.category}</p>
           </div>
           <div>
             <p className="release_year film_runtime">
-              {props.currentFilm.release_year} {props.currentFilm.runtime}
+              {props.currentFilm.release_date} {props.currentFilm.runtime}
             </p>
           </div>
           <div className="description">
-            {props.currentFilm.summary}
+            {props.currentFilm.overview}
           </div>
           <div className="director_cast_list">
             <p>{props.currentFilm.director}</p>

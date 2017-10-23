@@ -11,7 +11,7 @@ class FilmScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentFilm: {},
+   //   currentFilm: {},
     //  loading: true,
     };
   }
@@ -34,10 +34,10 @@ class FilmScreen extends Component {
   render() {
     return (
       <div className="FilmScreen">
-        {this.state.loading
+        {this.props.isFetching
           ? <Loader />
-          : (<div><FilmDescription currentFilm={this.state.currentFilm} />
-            <FilmsCollectionWrapper currentFilm={this.state.currentFilm} />
+          : (<div><FilmDescription currentFilm={this.props.currentFilm} />
+            <FilmsCollectionWrapper currentFilm={this.props.currentFilm} />
           </div>)
         }
         <Footer />
@@ -49,6 +49,7 @@ class FilmScreen extends Component {
 function mapStateToProps(state) {
   return {
     isFetching: state.isFetching,
+    currentFilm: state.currentFilm,
   }
 }
 

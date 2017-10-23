@@ -1,14 +1,7 @@
-export default function CurrentFilmReducer(state = [], action) {
+export default function CurrentFilmReducer(state = 0, action) {
   switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        action.payload,
-      ];
-    case 'DELETE':
-      return [
-        ...state.filter(todo => todo !== action.payload)
-      ];
+    case 'FETCH_CURRENT_MOVIE_RECEIVE':
+      return action.payload;
     default: return state;
   }
 }

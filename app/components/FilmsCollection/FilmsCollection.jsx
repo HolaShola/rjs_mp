@@ -7,6 +7,7 @@ import './FilmsCollection.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 import Loader from '../Loader';
+import { getCurrentFilm } from '../../actions';
 
 class FilmsCollection extends Component {
   constructor(props) {
@@ -28,7 +29,12 @@ class FilmsCollection extends Component {
   sortByRating() {
     this.props.films.sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
   }
-    
+
+  selectCurrentFilm = (currentFilmId) => {
+    const { dispatch } = this.props;
+    dispatch(getCurrentFilm(currentFilmId));
+  }
+ 
   renderDiscography() {
     if (this.props.isFetching) {
       return (<Loader />);
@@ -45,6 +51,7 @@ class FilmsCollection extends Component {
               director={film.director}
               show_cast={film.show_cast}
               summary={film.overview}
+              onClick={() => this.selectCurrentFilm(film.id)}
             />
           </Link>
         )
@@ -83,10 +90,10 @@ function mapStateToProps(state) {
   }
 }
 
-function mapActionsToProps(dispatch) {
-  return {
+// function mapActionsToProps(dispatch) {
+//   return {
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps, mapActionsToProps)(FilmsCollection);
+export default connect(mapStateToProps)(FilmsCollection);

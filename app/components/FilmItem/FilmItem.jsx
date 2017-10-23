@@ -5,7 +5,12 @@ import './FilmItem.css';
 const FilmItem = props => (
   <div className="FilmItem" >
     <div className="FilmItem_img">
-      <img alt={props.show_title} src={props.posterUrl} width="318" height="450" />
+      <img
+        alt={props.show_title}
+        src={props.posterUrl}
+        width="318" height="450"
+        onClick={props.onClick}  
+       />
     </div>
     <div className="film_description">
       <div className="release_year">

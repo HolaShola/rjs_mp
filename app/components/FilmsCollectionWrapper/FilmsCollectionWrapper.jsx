@@ -12,13 +12,13 @@ class FilmsCollectionWrapper extends Component {
   }
 
   componentDidMount() {
-    const mainDirector = this.props.currentFilm.director.split(',').length > 1
-      ? this.props.currentFilm.director.split(',')[0]
-      : this.props.currentFilm.director;
-    fetch(`https://netflixroulette.net/api/api.php?director=${mainDirector}`)
-      .then(response => response.json())
-      .then(data => this.setState({ films: data, loading: false }))
-      .catch(error => console.log('error', error));
+    // const mainDirector = this.props.currentFilm.director.split(',').length > 1
+    //   ? this.props.currentFilm.director.split(',')[0]
+    //   : this.props.currentFilm.director;
+    // fetch(`https://netflixroulette.net/api/api.php?director=${mainDirector}`)
+    //   .then(response => response.json())
+    //   .then(data => this.setState({ films: data, loading: false }))
+    //   .catch(error => console.log('error', error));
   }
 
   render() {
