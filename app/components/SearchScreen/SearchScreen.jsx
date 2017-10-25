@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import Header from '../Header';
 import FilmsCollection from '../FilmsCollection';
 import Footer from '../Footer';
@@ -29,7 +28,7 @@ class SearchScreen extends Component {
           console.log(data.message);
           window.location = '/';
         } else if (Array.isArray(data)) {
-          this.setState({ films: data, loading: false });
+          this.setState({ films: data.sort((a, b) => parseInt(b.release_year, 10) - parseInt(a.release_year, 10)), loading: false });
         } else {
           window.location = `/#/film/title=${data.show_title}`;
         }

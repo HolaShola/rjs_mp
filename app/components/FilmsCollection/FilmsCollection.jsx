@@ -20,15 +20,15 @@ class FilmsCollection extends Component {
     this.setState({buttonValue: index});
   }
 
-  sortByReleaseDate() {
+  sortByReleaseDate = () => {
     this.props.films.sort((a, b) => parseInt(b.release_year) - parseInt(a.release_year));
   }
 
-  sortByRating() {
+  sortByRating = () => {
     this.props.films.sort((a, b) => parseInt(b.rating) - parseInt(a.rating));
   }
     
-  renderDiscography() {
+  renderDiscography = () => {
     if (this.props.loading) {
       return (<Loader />);
     } else {

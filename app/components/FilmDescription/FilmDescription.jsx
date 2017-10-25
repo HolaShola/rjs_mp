@@ -16,7 +16,7 @@ const FilmDescription = props => (
       </div>
       <div className="header_down">
         <div className="header_img">
-          <img alt="poster" src={props.currentFilm.poster} />
+          <img alt={props.currentFilm.show_title} src={props.currentFilm.poster} />
         </div>
         <div className="header_img_description">
           <div className="show_title">

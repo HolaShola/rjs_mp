@@ -7,21 +7,27 @@ import Button from '../Button';
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.handleSearchByChange = this.handleSearchByChange.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
     this.state = {
       searchValue: '',
       buttonValue: 'title',
     };
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ searchValue: event.target.value });
   }
 
   handleSearchByChange(index) {
     const buttonValue = index === 0 ? 'title' : 'director';
     this.setState({ buttonValue });
+  }
+
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      window.location = `/#/search/${this.state.buttonValue}=${this.state.searchValue}`;
+    }
   }
 
   render() {
@@ -34,6 +40,7 @@ class Search extends Component {
             name=""
             defaultValue=""
             onChange={this.handleChange}
+            onKeyPress={this.handleEnter}
             ref={(input) => { this.input = input; }}
           />
           <Link to={`/search/${this.state.buttonValue}=${this.state.searchValue}`}><Button
