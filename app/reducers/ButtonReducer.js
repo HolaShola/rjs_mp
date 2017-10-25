@@ -1,13 +1,9 @@
-const initialState = {activeIndex: 0}
+const initialState = 'title';
 
 export default function ButtonReducer(state = initialState, action) {
-    switch(action.type) {
-        case 'CHANGE_BUTTON':
-            return {
-                ...state,
-                activeIndex: action.payload
-            }
-            
-        default: return state;     
-    }
+  switch (action.type) {
+    case 'CHANGE_TYPE_OF_SEARCH':
+      return action.payload;
+    default: return state;
+  }
 }

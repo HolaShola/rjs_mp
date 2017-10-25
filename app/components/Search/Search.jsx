@@ -4,16 +4,13 @@ import { connect } from 'react-redux';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
-import { getFilms } from '../../actions'
+import { getFilms, changeTypeOfSearch } from '../../actions'
 
 class Search extends Component {
   constructor(props) {
     super(props);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSearchByChange = this.handleSearchByChange.bind(this);
      this.state = {
       searchValue: '',
-      buttonValue: 'title',
     };
   }
 
@@ -21,10 +18,11 @@ class Search extends Component {
     this.setState({ searchValue: event.target.value });
   }
 
-  // handleSearchByChange(index) {
-  //   const buttonValue = index === 0 ? 'title' : 'director';
-  //   this.setState({ buttonValue });
-  // }
+  handleSearchByChange = (index) => {
+    const { dispatch } = this.props;
+    const buttonValue = index === 0 ? 'title' : 'director';
+    dispatch(changeTypeOfSearch(buttonValue));
+  }
   
   handleSearchClick = () => {
     const { dispatch } = this.props;
@@ -43,7 +41,7 @@ class Search extends Component {
             onChange={this.handleChange}
             ref={(input) => { this.input = input; }}
           />
-          <Link to={`/search/${this.state.buttonValue}=${this.state.searchValue}`}><Button
+          <Link to={`/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`}><Button
             type="submit"
             text="search"
             onClick={this.handleSearchClick}
@@ -60,11 +58,11 @@ class Search extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     users: state.users,
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    buttonValueForSearch: state.buttonValueForSearch,
+  }
+}
 
 // function mapActionsToProps(dispatch) {
 //   return {
@@ -72,4 +70,4 @@ class Search extends Component {
 //   }
 // }
 
-export default connect()(Search);
+export default connect(mapStateToProps)(Search);

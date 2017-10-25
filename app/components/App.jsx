@@ -1,56 +1,28 @@
-// import React, { Component } from 'react';
-// import 'whatwg-fetch';
-// import { Route } from 'react-router-dom';
-// import FilmsCollection from './FilmsCollection';
-// import FilmDescription from './FilmDescription';
-// import Header from './Header';
-// import Footer from './Footer';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import HomeScreen from './HomeScreen';
+import SearchScreen from './SearchScreen';
+import FilmScreen from './FilmScreen';
 
-// const About = () => <h1>HelloAbout</h1>;
+// api_key=4f7821834291015d1ed75fbd1dab475b
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       film_id: 0,
-//       films: [],
-//       currentFilm: {},
-//     };
-//   }
+const App = () => (
+  <div>
+    <Route exact path="/" component={HomeScreen} />
+    <Route exact path="/search" component={SearchScreen} />
+    <Route
+      path="/search/:searchQuery"
+      render={searchQuery => (
+        <SearchScreen searchQuery={searchQuery} />
+      )}
+    />
+    <Route
+      path="/film/:searchQuery"
+      render={searchQuery => (
+        <FilmScreen searchQuery={searchQuery} />
+      )}
+    />
+  </div>
+);
 
-//   componentDidMount() {
-//     this.fetchSend();
-//   }
-
-//   fetchSend() {
-//     fetch('https://netflixroulette.net/api/api.php?director=Quentin%20Tarantino')
-//       .then(response => response.json())
-//       .then(data => this.setState({ films: data }))
-//       .catch(error => console.log('error', error));
-//   }
-
-//   handleClick(id) {
-//     const currentFilm = this.state.films.find(film => film.unit === id);
-//     this.setState({ currentFilm: currentFilm, film_id: id });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <Route exact path="/" component={Header} />
-//         <Route
-//           path="/film"
-//           render={() => <FilmDescription currentFilm={this.state.currentFilm} />}
-//         />
-//         <Route path="/about" component={About} />
-//         <FilmsCollection
-//           func={id => this.handleClick(id)}
-//           films={this.state.films}
-//         />
-//         <Footer />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
+export default App;
