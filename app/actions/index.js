@@ -6,6 +6,7 @@ import {
   FETCH_SIMILAR_MOVIES_REQUEST,
   GET_SIMILAR_FILMS,
   CHANGE_TYPE_OF_SEARCH,
+  CHANGE_TYPE_OF_SORT,
 } from '../constants';
 
 export const moviesRequest = bool => (
@@ -60,6 +61,13 @@ export const similarMoviesFetchFailure = bool => (
 export const changeTypeOfSearch = buttonValue => (
   {
     type: CHANGE_TYPE_OF_SEARCH,
+    payload: buttonValue,
+  }
+);
+
+export const changeTypeOfSort = buttonValue => (
+  {
+    type: CHANGE_TYPE_OF_SORT,
     payload: buttonValue,
   }
 );

@@ -7,7 +7,7 @@ import './FilmsCollection.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 import Loader from '../Loader';
-import { getCurrentFilm, getSimilarFilms } from '../../actions';
+import { getCurrentFilm, getSimilarFilms, changeTypeOfSort } from '../../actions';
 
 class FilmsCollection extends Component {
   constructor(props) {
@@ -18,8 +18,11 @@ class FilmsCollection extends Component {
   }
 
   handleSearchByChange = (index) => {
-    index == 0 ? this.sortByReleaseDate() : this.sortByRating();
-    this.setState({buttonValue: index});
+   // index == 0 ? this.sortByReleaseDate() : this.sortByRating();
+   // this.setState({buttonValue: index});
+    const { dispatch } = this.props;
+    const sort_by = index === 0 ? 'release_date' : 'rating';
+    dispatch(changeTypeOfSort(sort_by));
   }
 
   sortByReleaseDate() {
@@ -47,7 +50,8 @@ class FilmsCollection extends Component {
               id={film.id}
               posterUrl={film.poster_path
                 ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${film.poster_path}`
-                : 'https://www.themoviedb.org/assets/static_cache/02a9430b88975cae16fcfcc9cf7b5799/images/v4/logos/primary-green.svg' }
+                : 'https://www.themoviedb.org/assets/static_cache/02a9430b88975cae16fcfcc9cf7b5799/images/v4/logos/primary-green.svg'
+              }
               release_year={film.release_date}
               show_title={film.title}
               category={film.category}

@@ -4,6 +4,7 @@ const initialState = {
   currentFilm: "",
   similarFilms: [],
   isFetchingForSimilarFilms: false,
+  typeOfSort: "release_date",
 };
 
 export default function FilmsReducer(state = initialState, action) {
@@ -33,6 +34,11 @@ export default function FilmsReducer(state = initialState, action) {
         ...state,
         isFetchingForSimilarFilms: action.payload
       }
+    case 'CHANGE_TYPE_OF_SORT':
+    return {
+      ...state,
+      typeOfSort: action.payload
+    }  
     default: return state;
   }
 }
