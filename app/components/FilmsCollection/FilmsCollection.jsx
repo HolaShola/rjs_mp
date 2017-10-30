@@ -7,7 +7,7 @@ import './FilmsCollection.css';
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 import Loader from '../Loader';
-import { getCurrentFilm } from '../../actions';
+import { getCurrentFilm, getSimilarFilms } from '../../actions';
 
 class FilmsCollection extends Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class FilmsCollection extends Component {
   selectCurrentFilm = (currentFilmId) => {
     const { dispatch } = this.props;
     dispatch(getCurrentFilm(currentFilmId));
+    dispatch(getSimilarFilms(currentFilmId));
   }
  
   renderDiscography() {
@@ -41,16 +42,19 @@ class FilmsCollection extends Component {
     } else {
       if (Array.isArray(this.props.films)) {
         return this.props.films.map(film =>
-          <Link to={encodeURI(encodeURI(`/film/title=${film.original_title}`))} replace key={film.id}>
+          <Link to={encodeURI(encodeURI(`/film/title=${film.title}`))} replace key={film.id}>
             <FilmItem
               id={film.id}
-              posterUrl={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${film.poster_path}`}
+              posterUrl={film.poster_path
+                ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${film.poster_path}`
+                : 'https://www.themoviedb.org/assets/static_cache/02a9430b88975cae16fcfcc9cf7b5799/images/v4/logos/primary-green.svg' }
               release_year={film.release_date}
-              show_title={film.original_title}
+              show_title={film.title}
               category={film.category}
               director={film.director}
               show_cast={film.show_cast}
               summary={film.overview}
+              rating={film.vote_average}
               onClick={() => this.selectCurrentFilm(film.id)}
             />
           </Link>
@@ -67,7 +71,7 @@ class FilmsCollection extends Component {
       <div className="FilmsCollection">
         <div className="sort">
           <div className="search_number_result">
-            <p>{this.props.films.length} movies found</p>
+            <p>{this.props.films ? this.props.films.length : 0} movies found</p>
           </div>
           <div className="sort_by">
             <ButtonGroup label="sort by" onChange={this.handleSearchByChange}>
@@ -86,14 +90,8 @@ class FilmsCollection extends Component {
 
 function mapStateToProps(state) {
   return {
-    isFetching: state.isFetching,
+    isFetching: state.filmsProp.isFetching,
   }
 }
-
-// function mapActionsToProps(dispatch) {
-//   return {
-    
-//   }
-// }
 
 export default connect(mapStateToProps)(FilmsCollection);

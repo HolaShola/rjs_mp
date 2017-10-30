@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Search.css';
 import ButtonGroup from '../ButtonGroup';
@@ -20,13 +20,21 @@ class Search extends Component {
 
   handleSearchByChange = (index) => {
     const { dispatch } = this.props;
-    const buttonValue = index === 0 ? 'title' : 'director';
+    const buttonValue = index === 0 ? 'movie' : 'tv';
     dispatch(changeTypeOfSearch(buttonValue));
   }
   
   handleSearchClick = () => {
     const { dispatch } = this.props;
-    dispatch(getFilms(this.state.searchValue));
+    dispatch(getFilms(this.state.searchValue, this.props.buttonValueForSearch));
+  }
+
+  handleEnter = (e) => {
+    if(e.key === 'Enter') {
+      this.handleSearchClick();
+      // window.location = `/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`;
+      <Redirect push to={`/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`} />;
+    }
   }
 
   render() {
@@ -39,6 +47,7 @@ class Search extends Component {
             name=""
             defaultValue=""
             onChange={this.handleChange}
+            onKeyPress={this.handleEnter}
             ref={(input) => { this.input = input; }}
           />
           <Link to={`/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`}><Button
@@ -48,8 +57,8 @@ class Search extends Component {
           /></Link>
           <div className="search_filters">
             <ButtonGroup label="search by" onChange={this.handleSearchByChange}>
-              <Button type="raised" text="title" />
-              <Button type="raised" text="director" />
+              <Button type="raised" text="movie" />
+              <Button type="raised" text="tv" />
             </ButtonGroup>
           </div>
         </div>
@@ -63,11 +72,5 @@ function mapStateToProps(state) {
     buttonValueForSearch: state.buttonValueForSearch,
   }
 }
-
-// function mapActionsToProps(dispatch) {
-//   return {
-    
-//   }
-// }
 
 export default connect(mapStateToProps)(Search);

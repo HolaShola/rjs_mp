@@ -1,4 +1,4 @@
-const initialState = 'title';
+const initialState = 'movie';
 
 export default function ButtonReducer(state = initialState, action) {
   switch (action.type) {

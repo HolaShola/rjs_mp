@@ -19,26 +19,8 @@ class SearchScreen extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.searchQuery.match.url.replace('/search/', ''));
-    getFilms();
+   // getFilms();
   }
-
-  // fetchSend() {
-  //   fetch(`https://netflixroulette.net/api/api.php?${this.props.searchQuery.match.url.replace('/search/', '')}`)
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.errorcode) {
-  //         console.log(data.message);
-  //         window.location = '/';
-  //       } else if (Array.isArray(data)) {
-  //         this.setState({ films: data, loading: false });
-  //       } else {
-  //         window.location = `/#/film/title=${data.show_title}`;
-  //       }
-  //     })
-  //     .catch(error => console.log('error', error));
-  // }
 
   render() {
     return (
@@ -46,7 +28,6 @@ class SearchScreen extends Component {
         <Header />
         <FilmsCollection
           films={this.props.films}
-          loading={this.state.loading}
           func={id => this.handleClick(id)}
         />
         <Footer />
@@ -66,18 +47,8 @@ SearchScreen.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    films: state.films,
+    films: state.filmsProp.films,
   }
 }
-
-// function mapActionsToProps(dispatch) {
-//   return {
-//     handleSearchClick() {
-//       dispatch({
-//         type: 'LOAD_DATA',
-//       });
-//     }
-//   }
-// }
 
 export default connect(mapStateToProps)(SearchScreen);

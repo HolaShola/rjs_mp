@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 import './Button.css';
 
-const Button = ({ type, text, onClick, isActive }) => {
+const Button = (props) => {
   const btnClass = classNames({
-    [`btn-${type}`]: true,
-    'btn-active': isActive,
+    [`btn-${props.type}`]: true,
+    'btn-active': props.text === props.buttonValueForSearch,
   });
   return (
-    <button onClick={onClick} className={btnClass}>
-      {text}
+    <button onClick={props.onClick} className={btnClass}>
+      {props.text}
     </button>);
 };
 
@@ -28,4 +29,10 @@ Button.defaultProps = {
   isActive: true,
 };
 
-export default Button;
+function mapStateToProps(state) {
+  return {
+    buttonValueForSearch: state.buttonValueForSearch,
+  }
+}
+
+export default connect(mapStateToProps)(Button);

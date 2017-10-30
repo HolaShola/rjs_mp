@@ -22,15 +22,17 @@ const FilmItem = props => (
       <div className="category">
         <p>{props.category}</p>
       </div>
+      <div className="category">
+        <p>{props.rating}</p>
+      </div>
     </div>
   </div>
 );
 
 FilmItem.propTypes = {
   posterUrl: PropTypes.string.isRequired,
-  show_title: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  release_year: PropTypes.string.isRequired,
+//  show_title: PropTypes.string.isRequired,
+//  release_year: PropTypes.string.isRequired,
 };
 
 export default FilmItem;

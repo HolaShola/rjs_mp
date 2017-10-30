@@ -16,7 +16,12 @@ const FilmDescription = props => (
       </div>
       <div className="header_down">
         <div className="header_img">
-          <img alt="poster" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${props.currentFilm.poster_path}`} />
+          <img
+            alt="poster"
+            src={props.currentFilm.poster_path
+              ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${props.currentFilm.poster_path}`
+              : 'https://www.themoviedb.org/assets/static_cache/02a9430b88975cae16fcfcc9cf7b5799/images/v4/logos/primary-green.svg'}
+          />
         </div>
         <div className="header_img_description">
           <div className="show_title">
@@ -43,36 +48,6 @@ const FilmDescription = props => (
     </div>
   </div>
 );
-
-FilmDescription.defaultProps = {
-  currentFilm: {
-    poster: '',
-    unit: 0,
-    show_title: '',
-    rating: '',
-    category: '',
-    runtime: '',
-    release_year: '',
-    summary: '',
-    director: '',
-    show_cast: '',
-  },
-};
-
-FilmDescription.propTypes = {
-  currentFilm: PropTypes.shape({
-    poster: PropTypes.string,
-    unit: PropTypes.number,
-    show_title: PropTypes.string,
-    rating: PropTypes.string,
-    category: PropTypes.string,
-    runtime: PropTypes.string,
-    release_year: PropTypes.string,
-    summary: PropTypes.string,
-    director: PropTypes.string,
-    show_cast: PropTypes.string,
-  }),
-};
 
 export default FilmDescription;
 

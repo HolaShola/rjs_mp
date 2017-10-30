@@ -48,8 +48,8 @@ class FilmScreen extends Component {
 
 function mapStateToProps(state) {
   return {
-    isFetching: state.isFetching,
-    currentFilm: state.currentFilm,
+    isFetching: state.filmsProp.isFetching,
+    currentFilm: state.filmsProp.currentFilm,
   }
 }
 
