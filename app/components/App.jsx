@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import HomeScreen from './HomeScreen';
-import SearchScreen from './SearchScreen';
-import FilmScreen from './FilmScreen';
-
-// api_key=4f7821834291015d1ed75fbd1dab475b
+import SearchScreen from '../containers/SearchScreen';
+import FilmScreen from '../containers/FilmScreen';
 
 const App = () => (
   <div>

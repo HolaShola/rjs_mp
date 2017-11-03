@@ -4,15 +4,17 @@ import {
   FETCH_MOVIES_RECEIVE,
   FETCH_CURRENT_MOVIE_RECEIVE,
   FETCH_SIMILAR_MOVIES_REQUEST,
-  GET_SIMILAR_FILMS,
+  GET_SIMILAR_MOVIES,
   CHANGE_TYPE_OF_SEARCH,
   CHANGE_TYPE_OF_SORT,
 } from '../constants';
+import { apiKey } from '../../config';
 
-export const moviesRequest = bool => (
+
+export const moviesRequest = isMoviesRequest => (
   {
     type: FETCH_MOVIES_REQUEST,
-    payload: bool,
+    payload: isMoviesRequest,
   }
 );
 
@@ -23,10 +25,10 @@ export const moviesReceive = data => (
   }
 );
 
-export const moviesFetchFailure = bool => (
+export const moviesFetchFailure = isMoviesFetchFailure => (
   {
     type: FETCH_MOVIES_FAILURE,
-    payload: bool,
+    payload: isMoviesFetchFailure,
   }
 );
 
@@ -39,22 +41,15 @@ export const currentMovieReceive = data => (
 
 export const similarFilms = data => (
   {
-    type: GET_SIMILAR_FILMS,
+    type: GET_SIMILAR_MOVIES,
     payload: data,
   }
 );
 
-export const similarMoviesRequest = bool => (
+export const similarMoviesRequest = isSimilarMoviesRequest => (
   {
     type: FETCH_SIMILAR_MOVIES_REQUEST,
-    payload: bool,
-  }
-);
-
-export const similarMoviesFetchFailure = bool => (
-  {
-    type: FETCH_SIMILAR_MOVIES_FAILURE,
-    payload: bool,
+    payload: isSimilarMoviesRequest,
   }
 );
 
@@ -72,45 +67,38 @@ export const changeTypeOfSort = buttonValue => (
   }
 );
 
-export const getFilms = (searchValue, buttonValueForSearch) => {
-  return dispatch => {
-    dispatch(moviesRequest(true))
-    fetch(`https://api.themoviedb.org/3/search/${buttonValueForSearch}?api_key=4f7821834291015d1ed75fbd1dab475b&query=${searchValue.replace(" ", "+")}`)
-      .then(response => {
-        dispatch(moviesRequest(false))
-        return response.json()
-      })
-      .then(data => {
-        dispatch(moviesReceive(data.results))
-      });
-  }
-}
+export const getFilms = (searchValue, buttonValueForSearch) => (dispatch) => {
+  dispatch(moviesRequest(true));
+  fetch(`https://api.themoviedb.org/3/search/${buttonValueForSearch}?api_key=${apiKey}&query=${searchValue.replace(' ', '+')}`)
+    .then((response) => {
+      dispatch(moviesRequest(false));
+      return response.json();
+    })
+    .then((data) => {
+      dispatch(moviesReceive(data.results));
+    });
+};
 
-export const getCurrentFilm = (currentFilmId) => {
-  return dispatch => {
-    dispatch(moviesRequest(true))
-    fetch(`https://api.themoviedb.org/3/movie/${currentFilmId}?api_key=4f7821834291015d1ed75fbd1dab475b`)
-      .then(response => {
-        dispatch(moviesRequest(false))
-        return response.json()
-      })
-      .then(data => {
-        dispatch(currentMovieReceive(data))
-      });
-  }
-}
+export const getCurrentFilm = currentFilmId => (dispatch) => {
+  dispatch(moviesRequest(true));
+  fetch(`https://api.themoviedb.org/3/movie/${currentFilmId}?api_key=${apiKey}`)
+    .then((response) => {
+      dispatch(moviesRequest(false));
+      return response.json();
+    })
+    .then((data) => {
+      dispatch(currentMovieReceive(data));
+    });
+};
 
-export const getSimilarFilms = (currentFilmId) => {
-  return dispatch => {
-    dispatch(similarMoviesRequest(true))
-    fetch(`https://api.themoviedb.org/3/movie/${currentFilmId}/similar?api_key=4f7821834291015d1ed75fbd1dab475b`)
-      .then(response => {
-        //dispatch(similarMoviesRequest(false))
-        return response.json()
-      })
-      .then(data => {
-        dispatch(similarFilms(data))
-        dispatch(similarMoviesRequest(false))
-      });
-  }
-}
+export const getSimilarFilms = currentFilmId => (dispatch) => {
+  dispatch(similarMoviesRequest(true));
+  fetch(`https://api.themoviedb.org/3/movie/${currentFilmId}/similar?api_key=${apiKey}`)
+    .then(response =>
+      response.json(),
+    )
+    .then((data) => {
+      dispatch(similarFilms(data));
+      dispatch(similarMoviesRequest(false));
+    });
+};

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import classNames from 'classnames';
 import './Button.css';
 
@@ -18,21 +17,13 @@ const Button = (props) => {
 Button.propTypes = {
   type: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  buttonValueForSearch: PropTypes.string,
   onClick: PropTypes.func,
-  isActive: PropTypes.bool.isRequired,
 };
 
 Button.defaultProps = {
-  text: 'search',
-  type: 'submit',
+  buttonValueForSearch: 'movie',
   onClick: () => {},
-  isActive: true,
 };
 
-function mapStateToProps(state) {
-  return {
-    buttonValueForSearch: state.buttonValueForSearch,
-  }
-}
-
-export default connect(mapStateToProps)(Button);
+export default Button;

@@ -8,9 +8,10 @@ const FilmItem = props => (
       <img
         alt={props.show_title}
         src={props.posterUrl}
-        width="318" height="450"
-        onClick={props.onClick}  
-       />
+        width="318"
+        height="450"
+        onClick={props.onClick}
+      />
     </div>
     <div className="film_description">
       <div className="release_year">
@@ -18,9 +19,6 @@ const FilmItem = props => (
       </div>
       <div className="show_title">
         <p>{props.show_title}</p>
-      </div>
-      <div className="category">
-        <p>{props.category}</p>
       </div>
       <div className="category">
         <p>{props.rating}</p>
@@ -31,8 +29,14 @@ const FilmItem = props => (
 
 FilmItem.propTypes = {
   posterUrl: PropTypes.string.isRequired,
-//  show_title: PropTypes.string.isRequired,
-//  release_year: PropTypes.string.isRequired,
+  show_title: PropTypes.string.isRequired,
+  release_year: PropTypes.string,
+  rating: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+FilmItem.defaultProps = {
+  release_year: '',
 };
 
 export default FilmItem;

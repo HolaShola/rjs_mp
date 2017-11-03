@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './FilmDescription.css';
 import AppTitle from '../AppTitle';
 import Button from '../Button';
+import { mockPoster, constantPartOfURL } from '../../../config';
 
 const FilmDescription = props => (
   <div className="FilmDescription">
@@ -19,8 +20,9 @@ const FilmDescription = props => (
           <img
             alt="poster"
             src={props.currentFilm.poster_path
-              ? `https://image.tmdb.org/t/p/w300_and_h450_bestv2${props.currentFilm.poster_path}`
-              : 'https://www.themoviedb.org/assets/static_cache/02a9430b88975cae16fcfcc9cf7b5799/images/v4/logos/primary-green.svg'}
+              ? `${constantPartOfURL}${props.currentFilm.poster_path}`
+              : `${mockPoster}`
+            }
           />
         </div>
         <div className="header_img_description">
@@ -48,6 +50,23 @@ const FilmDescription = props => (
     </div>
   </div>
 );
+
+
+FilmDescription.propTypes = {
+//  currentFilm: PropTypes.func.isRequired,
+};
+
+PropTypes.shape({
+  poster_path: PropTypes.string.isRequired,
+  original_title: PropTypes.string.isRequired,
+  vote_average: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  runtime: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  director: PropTypes.string.isRequired,
+  show_cast: PropTypes.string.isRequired,
+});
 
 export default FilmDescription;
 
