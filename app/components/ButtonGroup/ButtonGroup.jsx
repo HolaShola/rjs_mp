@@ -17,7 +17,7 @@ const ButtonGroup = props => (
 
 ButtonGroup.propTypes = {
   label: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+ // children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
 
 ButtonGroup.defaultProps = {
