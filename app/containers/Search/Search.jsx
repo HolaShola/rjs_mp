@@ -15,22 +15,22 @@ class Search extends Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChange(event) {
     this.setState({ searchValue: event.target.value });
   }
 
-  handleSearchByChange = (index) => {
+  handleSearchByChange(index) {
     const { dispatch } = this.props;
     const buttonValue = index === 0 ? 'movie' : 'tv';
     dispatch(changeTypeOfSearch(buttonValue));
   }
 
-  handleSearchClick = () => {
+  handleSearchClick() {
     const { dispatch } = this.props;
     dispatch(getFilms(this.state.searchValue, this.props.buttonValueForSearch));
   }
 
-  handleEnter = (e) => {
+  handleEnter(e) {
     if (e.key === 'Enter') {
       this.handleSearchClick();
       window.location = `/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`;
