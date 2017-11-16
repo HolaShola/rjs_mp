@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
+import styles from './Footer.css';
 
 const Footer = () => (
-  <div className="Footer">
-    <div className="footer_label">
+  <div className={styles.Footer}>
+    <div className={styles.footer_label}>
       <Link to="/">
         <p>nextflixroulette</p>
       </Link>

@@ -5,7 +5,7 @@ import FilmDescription from '../../components/FilmDescription/';
 import FilmsCollectionWrapper from '../FilmsCollectionWrapper';
 import Footer from '../../components/Footer';
 import Loader from '../../components/Loader';
-import './FilmScreen.css';
+import styles from './FilmScreen.css';
 
 class FilmScreen extends Component {
   componentWillReceiveProps(nextProps) {
@@ -16,7 +16,7 @@ class FilmScreen extends Component {
 
   render() {
     return (
-      <div className="FilmScreen">
+      <div className={styles.FilmScreen}>
         {this.props.isFetching
           ? <Loader />
           : (<div><FilmDescription currentFilm={this.props.currentFilm} />

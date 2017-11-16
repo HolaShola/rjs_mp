@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './FilmDescription.css';
+import styles from './FilmDescription.css';
 import AppTitle from '../AppTitle';
 import Button from '../Button';
 import { mockPoster, constantPartOfURL } from '../../../config';
 
 const FilmDescription = props => (
-  <div className="FilmDescription">
-    <div className="header_label">
-      <div className="header_label_up">
+  <div className={styles.FilmDescription}>
+    <div className={styles.header_label}>
+      <div className={styles.header_label_up}>
         <AppTitle />
         <Link to="/">
           <Button type="submit" text="search" />
         </Link>
       </div>
-      <div className="header_down">
-        <div className="header_img">
+      <div className={styles.header_down}>
+        <div className={styles.header_img}>
           <img
             alt="poster"
             src={props.currentFilm.poster_path
@@ -25,23 +25,23 @@ const FilmDescription = props => (
             }
           />
         </div>
-        <div className="header_img_description">
-          <div className="show_title">
+        <div className={styles.header_img_description}>
+          <div className={styles.show_title}>
             <p>{props.currentFilm.original_title}</p>
           </div>
-          <div className="film_rating">{props.currentFilm.vote_average}</div>
+          <div className={styles.film_rating}>{props.currentFilm.vote_average}</div>
           <div>
-            <p className="category">{props.currentFilm.category}</p>
+            <p className={styles.category}>{props.currentFilm.category}</p>
           </div>
           <div>
-            <p className="release_year film_runtime">
+            <p className={styles.release_year}>
               {props.currentFilm.release_date} {props.currentFilm.runtime}
             </p>
           </div>
-          <div className="description">
+          <div className={styles.description}>
             {props.currentFilm.overview}
           </div>
-          <div className="director_cast_list">
+          <div className={styles.director_cast_list}>
             <p>{props.currentFilm.director}</p>
             <p>{props.currentFilm.show_cast}</p>
           </div>

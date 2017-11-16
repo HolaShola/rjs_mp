@@ -1,9 +1,9 @@
 import React from 'react';
-import './NotFound.css';
+import styles from './NotFound.css';
 
 const NotFound = () => (
-  <div className="NotFound">
-    <div className="NotFound-inner">
+  <div className={styles.NotFound}>
+    <div className={styles.NotFoundInner}>
       No films found
     </div>
   </div>

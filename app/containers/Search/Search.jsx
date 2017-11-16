@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import './Search.css';
+import styles from './Search.css';
 import ButtonGroup from '../../components/ButtonGroup';
 import Button from '../../components/Button';
 import { getFilms, changeTypeOfSearch } from '../../actions';
@@ -15,17 +15,17 @@ class Search extends Component {
     };
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({ searchValue: event.target.value });
   }
 
-  handleSearchByChange(index) {
+  handleSearchByChange = (index) => {
     const { dispatch } = this.props;
     const buttonValue = index === 0 ? 'movie' : 'tv';
     dispatch(changeTypeOfSearch(buttonValue));
   }
 
-  handleSearchClick() {
+  handleSearchClick = () => {
     const { dispatch } = this.props;
     dispatch(getFilms(this.state.searchValue, this.props.buttonValueForSearch));
   }
@@ -39,9 +39,9 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="header_search_label">
+      <div className={styles.header_search_label}>
         <p>Find your movie</p>
-        <div className="header_search">
+        <div className={styles.header_search}>
           <input
             type="text"
             name=""
@@ -55,7 +55,7 @@ class Search extends Component {
             text="search"
             onClick={this.handleSearchClick}
           /></Link>
-          <div className="search_filters">
+          <div className={styles.search_filters}>
             <ButtonGroup label="search by" onChange={this.handleSearchByChange}>
               <Button type="raised" text="movie" buttonValueForSearch={this.props.buttonValueForSearch} />
               <Button type="raised" text="tv" buttonValueForSearch={this.props.buttonValueForSearch} />

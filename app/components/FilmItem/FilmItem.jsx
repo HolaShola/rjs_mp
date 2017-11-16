@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './FilmItem.css';
+import styles from './FilmItem.css';
 
 const FilmItem = props => (
-  <div className="FilmItem" >
-    <div className="FilmItem_img">
+  <div className={styles.FilmItem} >
+    <div className={styles.FilmItem_img}>
       <img
         alt={props.show_title}
         src={props.posterUrl}
@@ -13,14 +13,14 @@ const FilmItem = props => (
         onClick={props.onClick}
       />
     </div>
-    <div className="film_description">
-      <div className="release_year">
+    <div className={styles.film_description}>
+      <div className={styles.release_year}>
         <p>{props.release_year}</p>
       </div>
-      <div className="show_title">
+      <div className={styles.show_title}>
         <p>{props.show_title}</p>
       </div>
-      <div className="category">
+      <div className={styles.category}>
         <p>{props.rating}</p>
       </div>
     </div>

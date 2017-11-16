@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './AppTitle.css';
+import styles from './AppTitle.css';
 
 const AppTitle = () => (
-  <div className="AppTitle">
+  <div className={styles.AppTitle}>
     <Link to="/">
       <p>nextflixroulette</p>
     </Link>

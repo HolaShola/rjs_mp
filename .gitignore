@@ -5,6 +5,11 @@ app/bundle.js
 app/bundle.js.map
 app/bundle.css
 
+public/bundle.css
+public/bundle.css.map
+public/bundle.js
+public/bundle.js.map
+
 /.idea/workspace.xml
 /.idea/tasks.xml
 

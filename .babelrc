@@ -4,6 +4,17 @@
   "env": {
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
+    },
+
+    "server": {
+      "plugins": [
+          [
+              "css-modules-transform", {
+                  "generateScopedName": "[name]__[local]___[hash:base64:5]",
+                  "extensions": [".css"]
+              }
+          ]
+      ]
     }
   }
 }

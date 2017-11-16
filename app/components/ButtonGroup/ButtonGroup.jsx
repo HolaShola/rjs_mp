@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ButtonGroup.css';
+import styles from './ButtonGroup.css';
 
 const ButtonGroup = props => (
-  <div className="ButtonGroup">
+  <div className={styles.ButtonGroup}>
     <p>{props.label}</p>
     {React.Children.map(props.children, (child, index) =>
       React.cloneElement(child, {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import FilmItem from '../../components/FilmItem';
-import './FilmsCollection.css';
+import styles from './FilmsCollection.css';
 import ButtonGroup from '../../components/ButtonGroup';
 import Button from '../../components/Button';
 import Loader from '../../components/Loader';
@@ -72,19 +72,19 @@ class FilmsCollection extends Component {
 
   render() {
     return (
-      <div className="FilmsCollection">
-        <div className="sort">
-          <div className="search_number_result">
+      <div className={styles.FilmsCollection}>
+        <div className={styles.sort}>
+          <div className={styles.search_number_result}>
             <p>{this.props.films ? this.props.films.length : 0} movies found</p>
           </div>
-          <div className="sort_by">
+          <div className={styles.sort_by}>
             <ButtonGroup label="sort by" onChange={this.handleSearchByChange}>
               <Button type="flat" text="release date" />
               <Button type="flat" text="rating" />
             </ButtonGroup>
           </div>
         </div>
-        <div className="discography">
+        <div className={styles.discography}>
           {this.renderDiscography()}
         </div>
       </div>
