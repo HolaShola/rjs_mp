@@ -4,6 +4,8 @@ package-lock.json
 app/bundle.js
 app/bundle.js.map
 app/bundle.css
+app/bundleSSR.js
+app/bundleSSR.js.map
 
 public/bundle.css
 public/bundle.css.map

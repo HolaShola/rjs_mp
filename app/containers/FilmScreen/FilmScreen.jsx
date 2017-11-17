@@ -10,7 +10,7 @@ import styles from './FilmScreen.css';
 class FilmScreen extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentFilm.status_message) {
-      window.location = '/';
+    //  window.location = '/';
     }
   }
 

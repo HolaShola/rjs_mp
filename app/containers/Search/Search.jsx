@@ -33,7 +33,7 @@ class Search extends Component {
   handleEnter(e) {
     if (e.key === 'Enter') {
       this.handleSearchClick();
-      window.location = `/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`;
+    //  window.location = `/search/${this.props.buttonValueForSearch}=${this.state.searchValue}`;
     }
   }
 
