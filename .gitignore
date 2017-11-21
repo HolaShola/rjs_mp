@@ -1,3 +1,9 @@
+# IDE #
 .idea/
+
+# Node Files #
 /node_modules/
+
+public/
+
 package-lock.json
