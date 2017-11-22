@@ -10,10 +10,11 @@ function renderFullPage(html) {
       <head>
         <meta charset=utf-8>
         <title>React_Mentoring with SSR</title>
+        <link rel="stylesheet" href="/public/bundle.css" />
       </head>
       <body>
         <div id='root'>${html}</div>
-        <script src="./public/server_bundle.js"></script>
+        <script src="/public/client_bundle.js"></script>
         </body>
     </html>
   `;

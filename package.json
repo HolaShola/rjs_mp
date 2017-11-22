@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "build:dev": "webpack --config ./webpack.config.server.js",
-    "start": "npm run build:dev",
+    "start": "webpack && babel-node server.js",
     "start2": "webpack --config ./webpack.config.client.js",
     "server": "babel-node server.js",
     "test": "jest",
