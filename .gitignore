@@ -1,9 +1,22 @@
-# IDE #
-.idea/
-
-# Node Files #
+/.idea
 /node_modules/
-
-public/
-
 package-lock.json
+app/bundle.js
+app/bundle.js.map
+app/bundle.css
+app/bundleSSR.js
+app/bundleSSR.js.map
+
+public/bundle.css
+public/bundle.css.map
+public/client_bundle.js
+public/client_bundle.js.map
+public/server_bundle.js
+public/server_bundle.js.map
+
+
+/.idea/workspace.xml
+/.idea/tasks.xml
+
+coverage/
+__test__/components/__snapshots__/

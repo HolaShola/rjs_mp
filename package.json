@@ -4,9 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build:dev": "webpack --config ./webpack.config.server.js",
-    "start": "webpack && babel-node server.js",
-    "start2": "webpack --config ./webpack.config.client.js",
+    "start": "webpack",
     "server": "babel-node server.js",
     "test": "jest",
     "test:watch": "npm test -- --watch",
@@ -72,6 +70,7 @@
     "isomorphic-style-loader": "^4.0.0",
     "jest": "^21.2.1",
     "postcss": "^6.0.14",
+    "postcss-loader": "^2.0.8",
     "postcss-modules": "^1.1.0",
     "react-test-renderer": "^16.1.0",
     "style-loader": "^0.18.2",
