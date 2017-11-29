@@ -20,3 +20,12 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(FilmsCollectionWrapper);
+
+FilmsCollectionWrapper.propTypes = {
+  isFetchingForSimilarFilms: PropTypes.bool.isRequired,
+  similarFilms: PropTypes.arrayOf(PropTypes.shape()),
+};
+
+FilmsCollectionWrapper.defaultProps = {
+  similarFilms: [],
+};

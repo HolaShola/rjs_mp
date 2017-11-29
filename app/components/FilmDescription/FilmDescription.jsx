@@ -53,20 +53,37 @@ const FilmDescription = props => (
 
 
 FilmDescription.propTypes = {
-//  currentFilm: PropTypes.func.isRequired,
+  currentFilm: PropTypes.oneOfType(
+    [
+      PropTypes.string,
+      PropTypes.shape({
+        poster_path: PropTypes.string,
+        original_title: PropTypes.string,
+        vote_average: PropTypes.number,
+        category: PropTypes.string,
+        release_date: PropTypes.string,
+        runtime: PropTypes.number,
+        overview: PropTypes.string,
+        director: PropTypes.string,
+        show_cast: PropTypes.string,
+      }),
+    ],
+  ),
 };
 
-PropTypes.shape({
-  poster_path: PropTypes.string.isRequired,
-  original_title: PropTypes.string.isRequired,
-  vote_average: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  release_date: PropTypes.string.isRequired,
-  runtime: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  director: PropTypes.string.isRequired,
-  show_cast: PropTypes.string.isRequired,
-});
+FilmDescription.defaultProps = {
+  currentFilm: {
+    poster_path: '',
+    original_title: '',
+    vote_average: 0,
+    category: '',
+    release_date: '',
+    runtime: 0,
+    overview: '',
+    director: '',
+    show_cast: '',
+  },
+};
 
 export default FilmDescription;
 

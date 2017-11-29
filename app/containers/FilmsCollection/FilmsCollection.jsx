@@ -20,18 +20,18 @@ class FilmsCollection extends Component {
 
   handleSearchByChange = (index) => {
     const { dispatch } = this.props;
-    const sort_by = index === 0 ? 'release_date' : 'rating';
+    const sortBy = index === 0 ? 'release_date' : 'rating';
     if (index === 0) {
       this.sortByReleaseDate();
     } else {
       this.sortByRating();
     }
     this.setState({ buttonValue: index });
-    dispatch(changeTypeOfSort(sort_by));
+    dispatch(changeTypeOfSort(sortBy));
   }
 
   sortByReleaseDate() {
-    this.props.films.sort((a, b) => parseInt(b.release_date) - parseInt(a.release_date));
+    this.props.films.sort((a, b) => parseInt(b.release_date, 10) - parseInt(a.release_date, 10));
   }
 
   sortByRating() {
@@ -97,5 +97,15 @@ function mapStateToProps(state) {
     isFetching: state.filmsProp.isFetching,
   };
 }
+
+FilmsCollection.propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape()),
+};
+
+FilmsCollection.defaultProps = {
+  films: [],
+};
 
 export default connect(mapStateToProps)(FilmsCollection);

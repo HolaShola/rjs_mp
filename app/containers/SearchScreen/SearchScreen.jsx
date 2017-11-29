@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'whatwg-fetch';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,19 +7,16 @@ import FilmsCollection from '../FilmsCollection';
 import Footer from '../../components/Footer';
 import './SearchScreen.css';
 
-class SearchScreen extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <FilmsCollection
-          films={this.props.films}
-        />
-        <Footer />
-      </div>
-    );
-  }
-}
+const SearchScreen = props => (
+  <div>
+    <Header />
+    <FilmsCollection
+      films={props.films}
+    />
+    <Footer />
+  </div>
+);
+
 
 function mapStateToProps(state) {
   return {
@@ -28,3 +25,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(SearchScreen);
+
+SearchScreen.PropTypes = {
+  films: PropTypes.arrayOf.isRequired,
+};
